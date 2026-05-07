@@ -1,2 +1,5 @@
 User-Agent: *
 Disallow:
+
+Sitemap: https://bayairervpark.com/sitemap.xml
+Sitemap: https://bayairervpark.com/sitemap_index.xml

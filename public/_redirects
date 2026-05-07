@@ -1,0 +1,18 @@
+# Preserve legacy WordPress-style entry points and old asset paths.
+/home / 301
+/index.php / 301
+/feed / 301
+/comments/feed / 301
+/author/* / 301
+
+# Canonicalize key page URLs with trailing slash.
+/about-us /about-us/ 301
+/contact /contact/ 301
+/local-attractions /local-attractions/ 301
+/resort-map-rates /resort-map-rates/ 301
+/rules-and-regulations /rules-and-regulations/ 301
+
+# Map historical WordPress asset URLs to static equivalents.
+/wp-content/uploads/* /assets/uploads/:splat 301
+/wp-content/themes/* /assets/ui/bb-theme/:splat 301
+/wp-content/plugins/* /assets/lib/:splat 301

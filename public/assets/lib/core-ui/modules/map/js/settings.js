@@ -15,7 +15,8 @@
 			var form = $( '.fl-builder-settings' ),
 				address = form.find( 'textarea[name=address]' ).val(),
 				q = '' === address ? 'United Kingdom' : address,
-				url = 'https://www.google.com/maps/embed/v1/place?key=AIzaSyD09zQ9PNDNNy9TadMuzRV_UsPUoWKntt8&q=',
+				apiKey = ( window.FLBuilderConfig && window.FLBuilderConfig.googleMapsApiKey ) ? window.FLBuilderConfig.googleMapsApiKey : '',
+				url = 'https://www.google.com/maps/embed/v1/place?key=' + encodeURIComponent( apiKey ) + '&q=',
 				iframe = $( FLBuilder.preview.classes.node + ' iframe' );
 
 			iframe.attr( 'src', url + q );
