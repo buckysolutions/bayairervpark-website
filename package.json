@@ -1,0 +1,17 @@
+{
+  "name": "bayairervpark-static-astro",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "http-server public -p 4321 -a 127.0.0.1 -c-1",
+    "build": "astro build",
+    "preview": "http-server dist -p 4322 -a 127.0.0.1 -c-1",
+    "cf:preview": "npx wrangler@latest pages dev dist --compatibility-date=2026-05-07 --port 8788",
+    "cf:deploy": "npx wrangler@latest pages deploy dist"
+  },
+  "devDependencies": {
+    "astro": "^5.7.5",
+    "http-server": "^14.1.1"
+  }
+}

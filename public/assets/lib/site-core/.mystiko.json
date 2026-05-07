@@ -1,0 +1,76 @@
+{
+  "$schema": "https://schemastore.docs.im.int.godaddy.com/json/mystiko.json",
+  "defaults": {
+    "region": "us-west-2",
+    "secrets": []
+  },
+  "environments": {
+
+    "dev": {
+      "profileName": "GD-AWS-USA-CPO-MS-Dev-Private",
+      "roleArn": "arn:aws:iam::086369381598:role/GD-AWS-USA-CPO-MS-Dev-Private-Deploy",
+      "secrets": [
+        {
+          "name": "AUTH_CLIENT_CERT",
+          "secretName": "/dev/pws-core/authclient/cert"
+        },
+        {
+          "name": "AUTH_CLIENT_KEY",
+          "secretName": "/dev/pws-core/authclient/key"
+        },
+        {
+          "name": "V3_API_Password",
+          "secretName": "/Dev/PwsCore/V3_API_Password"
+        },
+        {
+          "name": "V3_API_Username",
+          "secretName": "/Dev/PwsCore/V3_API_Username"
+        }
+      ]
+    },
+    "test": {
+      "profileName": "GD-AWS-USA-CPO-MS-Test",
+      "roleArn": "arn:aws:iam::747035786635:role/GD-AWS-USA-CPO-MS-Test-Deploy",
+      "secrets": [
+        {
+          "name": "AUTH_CLIENT_CERT",
+          "secretName": "/test/pws-core/authclient/cert"
+        },
+        {
+          "name": "AUTH_CLIENT_KEY",
+          "secretName": "/test/pws-core/authclient/key"
+        },
+        {
+          "name": "V3_API_Password",
+          "secretName": "/Test/PwsCore/V3_API_Password"
+        },
+        {
+          "name": "V3_API_Username",
+          "secretName": "/Test/PwsCore/V3_API_Username"
+        }
+      ]
+    },
+    "prod": {
+      "profileName": "GD-AWS-USA-CPO-MS-Prod",
+      "roleArn": "arn:aws:iam::149934840228:role/GD-AWS-USA-CPO-MS-Prod-Deploy",
+      "secrets": [
+        {
+          "name": "AUTH_CLIENT_CERT",
+          "secretName": "/prod/pws-core/authclient/cert"
+        },
+        {
+          "name": "AUTH_CLIENT_KEY",
+          "secretName": "/prod/pws-core/authclient/key"
+        },
+        {
+          "name": "V3_API_Password",
+          "secretName": "/Prod/PwsCore/V3_API_Password"
+        },
+        {
+          "name": "V3_API_Username",
+          "secretName": "/Prod/PwsCore/V3_API_Username"
+        }
+      ]
+    }
+  }
+}
