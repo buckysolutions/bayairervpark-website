@@ -72,7 +72,41 @@
 <meta name="msapplication-TileImage" content="/assets/uploads/2021/09/fab.jpg">
 
 		<style id="bucky-custom-css">
-			/*-------------------------------
+			
+header .uabb-creative-menu .menu.uabb-creative-menu-horizontal {
+    margin-left: 30px !important;
+    text-align: left !important;
+    justify-content: flex-start !important;
+}
+header .uabb-creative-menu .menu.uabb-creative-menu-horizontal > li {
+    margin-right: 25px !important;
+    white-space: nowrap !important;
+    line-height: 1.2 !important;
+    vertical-align: middle !important;
+}
+header .uabb-creative-menu .menu.uabb-creative-menu-horizontal > li:last-child {
+    margin-right: 0 !important;
+}
+a.header-book-now, a.header-book-now:visited {
+    text-decoration: none !important;
+    background: #65cbda !important;
+    color: #ffffff !important;
+    padding: 10px 25px !important;
+    border-radius: 0px !important;
+    font-family: Lato, sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+    transition: all .3s ease 0s !important;
+    display: inline-block !important;
+    vertical-align: middle !important;
+}
+a.header-book-now:hover, a.header-book-now:focus {
+    background: #15b2d1 !important;
+    color: #ffffff !important;
+}
+/* Ensure the button wrapper is centered like the original node if needed, but the original node already has text-align: left or whatever */
+
+/*-------------------------------
             TYPOGRAPHY 
 --------------------------------*/
 body p, 
@@ -347,9 +381,11 @@ and (max-width: 1600px){
     TABLET SCREENS AND SMALLER
 --------------------------------*/
 
-@media screen and (max-width: 768px) {
+@media
+ screen and (max-width: 768px) {
+/* Mobile header uses theme grey, not black */
 header .fl-row-content-wrap, header .fl-col-content.fl-node-content {
-    background-color: #000000 !important;
+    background-color: #1d5171 !important;
 }
 	
 .fl-builder-content[data-overlay="1"]:not(.fl-theme-builder-header-sticky) {
@@ -365,9 +401,7 @@ margin-bottom: 7px !important;
     font-size: 121px !important;
 }
 	/*hederbg color */
-	body:not(.single-fl-theme-layout) .fl-builder-content[data-overlay="1"]:not(.fl-theme-builder-header-scrolled):not([data-overlay-bg="default"]) .fl-row-content-wrap, body:not(.single-fl-theme-layout) .fl-builder-content[data-overlay="1"]:not(.fl-theme-builder-header-scrolled):not([data-overlay-bg="default"]) .fl-col-content {
-    background: #ffffff;
-}
+	/* Removed overlay override - keep transparent */
 		.middle-top > .fl-row-content-wrap {
     background-size: contain;
 }
@@ -383,25 +417,42 @@ outline: none;
         MOBILE SCREENS ONLY
 ---------------------------------*/
 
-@media screen and (max-width: 480px) {
-	.fl-builder-content #hlogo  {
-   width: 80% !important; 
-		margin-left:0;
-		margin-right: 0;
-}
-	.fl-builder-content #hmenu {
-    width: 20% !important;
-		margin-left:0;
-		margin-right: 0;
-}
-	.fl-builder-content #hbutton {
-    width: 100% !important;
-		margin-left:65px;
-		margin-right: 50px;
-}
-	#hbutton .pp-button-wrap {
-    text-align: center;
-}
+@media
+ screen and (max-width: 480px) {
+    /* Mobile header - proper layout with spacing */
+    header .fl-row-content-wrap {
+        padding: 8px 10px !important;
+    }
+    #hlogo {
+        width: 55% !important;
+    }
+    #hlogo .pp-photo-content-inner img {
+        width: 130px !important;
+    }
+    #hmenu {
+        width: 45% !important;
+    }
+    #hbutton {
+        width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        margin-top: 5px !important;
+        text-align: center !important;
+    }
+    #hbutton .pp-button-wrap {
+        text-align: center !important;
+    }
+    /* Mobile hero - reduce padding so image is visible */
+    .fl-visible-mobile.fl-row-bg-photo > .fl-row-content-wrap {
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+        min-height: 300px !important;
+    }
+    /* Ensure hero text is readable on mobile */
+    .fl-visible-mobile .pp-heading-content .heading-title {
+        font-size: 28px !important;
+    }
+
 .highlight-bg .fl-module-heading .fl-heading {
     font-size: 62px !important;
 }
@@ -429,7 +480,10 @@ outline: none;
     border: 1px solid #000000;
     padding: 1px;
 }
-}		</style>
+}		/* Override all hero/background image overlays with a darker tint for white text contrast */
+.fl-page-content .fl-row-bg-photo .fl-row-content-wrap:after { background-color: rgba(0,0,0,0.45) !important; }
+.fl-page-content .fl-row-bg-photo .fl-row-content { position: relative; z-index: 1; }
+</style>
 		</head>
 <body class="page-template-default page page-id-16 fl-builder fl-builder-2-9-3 fl-themer-1-5-1-1 fl-theme-1-7-18-1 fl-no-js fl-theme-builder-header fl-theme-builder-header-header-menu fl-theme-builder-footer fl-theme-builder-footer-footer-menu fl-framework-base-4 fl-preset-default fl-full-width fl-scroll-to-top fl-search-active" itemscope="itemscope" itemtype="https://schema.org/WebPage">
 <a aria-label="Skip to content" class="fl-screen-reader-text" href="#fl-main-content">Skip to content</a><div class="fl-page">
@@ -448,7 +502,7 @@ outline: none;
 		<div class="pp-photo-content">
 			<div class="pp-photo-content-inner">
 								<a href="/" target="_self" itemprop="url">
-									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="/assets/uploads/2021/09/Bay-Aire-RV-Park-logo-0001-ai.png" alt="Bay Aire RV Park" itemprop="image" height="475" width="921" srcset="/assets/uploads/2021/09/Bay-Aire-RV-Park-logo-0001-ai.png 921w, /assets/uploads/2021/09/Bay-Aire-RV-Park-logo-0001-ai-300x155.png 300w, /assets/uploads/2021/09/Bay-Aire-RV-Park-logo-0001-ai-768x396.png 768w" sizes="auto, (max-width: 921px) 100vw, 921px" title="Bay Aire RV Park">
+									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/bayaire-rv-park/bayaire%2Blogo.png" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park">
 					<div class="pp-overlay-bg"></div>
 													</a>
 							</div>
@@ -472,7 +526,7 @@ outline: none;
 					<ul id="menu-main-menu" class="menu uabb-creative-menu-horizontal uabb-toggle-none"><li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home uabb-creative-menu uabb-cm-style"><a href="/"><span class="menu-item-text">Home</span></a></li>
 <li id="menu-item-38" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/about-us/"><span class="menu-item-text">About Us</span></a></li>
 <li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-16 current_page_item uabb-creative-menu uabb-cm-style"><a href="/local-attractions/"><span class="menu-item-text">Local Attractions</span></a></li>
-<li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/resort-map-rates/"><span class="menu-item-text">Resort Map &amp; Rates</span></a></li>
+<li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/resort-map-rates/"><span class="menu-item-text">Map &amp; Rates</span></a></li>
 <li id="menu-item-4370" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/rules-and-regulations/"><span class="menu-item-text">Rules &amp; Regulations</span></a></li>
 <li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/contact/"><span class="menu-item-text">Contact</span></a></li>
 </ul>	</div>
@@ -487,7 +541,7 @@ outline: none;
 				<div class="uabb-off-canvas-menu uabb-menu-right"> <div class="uabb-menu-close-btn">×</div>						<ul id="menu-main-menu-1" class="menu uabb-creative-menu-horizontal uabb-toggle-none"><li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home uabb-creative-menu uabb-cm-style"><a href="/"><span class="menu-item-text">Home</span></a></li>
 <li id="menu-item-38" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/about-us/"><span class="menu-item-text">About Us</span></a></li>
 <li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-16 current_page_item uabb-creative-menu uabb-cm-style"><a href="/local-attractions/"><span class="menu-item-text">Local Attractions</span></a></li>
-<li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/resort-map-rates/"><span class="menu-item-text">Resort Map &amp; Rates</span></a></li>
+<li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/resort-map-rates/"><span class="menu-item-text">Map &amp; Rates</span></a></li>
 <li id="menu-item-4370" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/rules-and-regulations/"><span class="menu-item-text">Rules &amp; Regulations</span></a></li>
 <li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/contact/"><span class="menu-item-text">Contact</span></a></li>
 </ul>				</div>
@@ -500,15 +554,10 @@ outline: none;
 	<div class="fl-col-content fl-node-content"><div class="fl-module fl-module-info-list fl-node-61b14b231a4fc" data-node="61b14b231a4fc">
 	<div class="fl-module-content fl-node-content">
 		
-<div class="uabb-module-content uabb-info-list">
-	<ul class="uabb-info-list-wrapper uabb-info-list-left">
-		<li class="uabb-info-list-item info-list-item-dynamic0"><div class="uabb-info-list-content-wrapper fl-clearfix uabb-info-list-left"><div class="uabb-info-list-icon info-list-icon-dynamic0"><div class="uabb-module-content uabb-imgicon-wrap">				<span class="uabb-icon-wrap">
-			<span class="uabb-icon">
-			<i class="fas fa-phone-alt" aria-hidden="true"></i>
-			</span>
-		</span>
-	
-		</div></div><div class="uabb-info-list-content uabb-info-list-left info-list-content-dynamic0"><h3 class="uabb-info-list-title"></h3><div class="uabb-info-list-description uabb-text-editor info-list-description-dynamic0"><p><a href="tel:+17277844082">+1 (727) 784-4082</a></p></div></div></div><div class="uabb-info-list-connector-top uabb-info-list-left"></div><div class="uabb-info-list-connector uabb-info-list-left"></div></li>	</ul>
+<div class="pp-button-wrap pp-button-width-auto" style="text-align: right;">
+	<a href="https://app.fireflyreservations.com/reserve/property/BayAireRVPark" target="_blank" rel="noopener" class="pp-button header-book-now" role="button" aria-label="Book Now">
+		<span class="pp-button-text">Book Now</span>
+	</a>
 </div>
 	</div>
 </div>
@@ -533,7 +582,7 @@ outline: none;
 		<div class="pp-photo-content">
 			<div class="pp-photo-content-inner">
 								<a href="/" target="_self" itemprop="url">
-									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="/assets/uploads/2021/09/Bay-Aire-RV-Park-logo-0001-ai.png" alt="Bay Aire RV Park" itemprop="image" height="475" width="921" srcset="/assets/uploads/2021/09/Bay-Aire-RV-Park-logo-0001-ai.png 921w, /assets/uploads/2021/09/Bay-Aire-RV-Park-logo-0001-ai-300x155.png 300w, /assets/uploads/2021/09/Bay-Aire-RV-Park-logo-0001-ai-768x396.png 768w" sizes="auto, (max-width: 921px) 100vw, 921px" title="Bay Aire RV Park">
+									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/bayaire-rv-park/bayaire%2Blogo.png" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park">
 					<div class="pp-overlay-bg"></div>
 													</a>
 							</div>
@@ -557,7 +606,7 @@ outline: none;
 					<ul id="menu-main-menu-2" class="menu uabb-creative-menu-horizontal uabb-toggle-none"><li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home uabb-creative-menu uabb-cm-style"><a href="/"><span class="menu-item-text">Home</span></a></li>
 <li id="menu-item-38" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/about-us/"><span class="menu-item-text">About Us</span></a></li>
 <li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-16 current_page_item uabb-creative-menu uabb-cm-style"><a href="/local-attractions/"><span class="menu-item-text">Local Attractions</span></a></li>
-<li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/resort-map-rates/"><span class="menu-item-text">Resort Map &amp; Rates</span></a></li>
+<li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/resort-map-rates/"><span class="menu-item-text">Map &amp; Rates</span></a></li>
 <li id="menu-item-4370" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/rules-and-regulations/"><span class="menu-item-text">Rules &amp; Regulations</span></a></li>
 <li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/contact/"><span class="menu-item-text">Contact</span></a></li>
 </ul>	</div>
@@ -572,7 +621,7 @@ outline: none;
 				<div class="uabb-off-canvas-menu uabb-menu-right"> <div class="uabb-menu-close-btn">×</div>						<ul id="menu-main-menu-3" class="menu uabb-creative-menu-horizontal uabb-toggle-none"><li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home uabb-creative-menu uabb-cm-style"><a href="/"><span class="menu-item-text">Home</span></a></li>
 <li id="menu-item-38" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/about-us/"><span class="menu-item-text">About Us</span></a></li>
 <li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-16 current_page_item uabb-creative-menu uabb-cm-style"><a href="/local-attractions/"><span class="menu-item-text">Local Attractions</span></a></li>
-<li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/resort-map-rates/"><span class="menu-item-text">Resort Map &amp; Rates</span></a></li>
+<li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/resort-map-rates/"><span class="menu-item-text">Map &amp; Rates</span></a></li>
 <li id="menu-item-4370" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/rules-and-regulations/"><span class="menu-item-text">Rules &amp; Regulations</span></a></li>
 <li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/contact/"><span class="menu-item-text">Contact</span></a></li>
 </ul>				</div>
@@ -585,15 +634,10 @@ outline: none;
 	<div class="fl-col-content fl-node-content"><div class="fl-module fl-module-info-list fl-node-61b14d48cfb60" data-node="61b14d48cfb60">
 	<div class="fl-module-content fl-node-content">
 		
-<div class="uabb-module-content uabb-info-list">
-	<ul class="uabb-info-list-wrapper uabb-info-list-left">
-		<li class="uabb-info-list-item info-list-item-dynamic0"><div class="uabb-info-list-content-wrapper fl-clearfix uabb-info-list-left"><div class="uabb-info-list-icon info-list-icon-dynamic0"><div class="uabb-module-content uabb-imgicon-wrap">				<span class="uabb-icon-wrap">
-			<span class="uabb-icon">
-			<i class="fas fa-phone-alt" aria-hidden="true"></i>
-			</span>
-		</span>
-	
-		</div></div><div class="uabb-info-list-content uabb-info-list-left info-list-content-dynamic0"><h3 class="uabb-info-list-title"></h3><div class="uabb-info-list-description uabb-text-editor info-list-description-dynamic0"><p><a href="tel:+17277844082">+1 (727) 784-4082</a></p></div></div></div><div class="uabb-info-list-connector-top uabb-info-list-left"></div><div class="uabb-info-list-connector uabb-info-list-left"></div></li>	</ul>
+<div class="pp-button-wrap pp-button-width-auto" style="text-align: right;">
+	<a href="https://app.fireflyreservations.com/reserve/property/BayAireRVPark" target="_blank" rel="noopener" class="pp-button header-book-now" role="button" aria-label="Book Now">
+		<span class="pp-button-text">Book Now</span>
+	</a>
 </div>
 	</div>
 </div>
@@ -618,7 +662,7 @@ outline: none;
 		<div class="pp-photo-content">
 			<div class="pp-photo-content-inner">
 								<a href="/" target="_self" itemprop="url">
-									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="/assets/uploads/2021/09/Bay-Aire-RV-Park-logo-0001-ai.png" alt="Bay Aire RV Park" itemprop="image" height="475" width="921" srcset="/assets/uploads/2021/09/Bay-Aire-RV-Park-logo-0001-ai.png 921w, /assets/uploads/2021/09/Bay-Aire-RV-Park-logo-0001-ai-300x155.png 300w, /assets/uploads/2021/09/Bay-Aire-RV-Park-logo-0001-ai-768x396.png 768w" sizes="auto, (max-width: 921px) 100vw, 921px" title="Bay Aire RV Park">
+									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/bayaire-rv-park/bayaire%2Blogo.png" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park">
 					<div class="pp-overlay-bg"></div>
 													</a>
 							</div>
@@ -633,15 +677,10 @@ outline: none;
 	<div class="fl-col-content fl-node-content"><div class="fl-module fl-module-info-list fl-node-61b14c87934ec" data-node="61b14c87934ec">
 	<div class="fl-module-content fl-node-content">
 		
-<div class="uabb-module-content uabb-info-list">
-	<ul class="uabb-info-list-wrapper uabb-info-list-left">
-		<li class="uabb-info-list-item info-list-item-dynamic0"><div class="uabb-info-list-content-wrapper fl-clearfix uabb-info-list-left"><div class="uabb-info-list-icon info-list-icon-dynamic0"><div class="uabb-module-content uabb-imgicon-wrap">				<span class="uabb-icon-wrap">
-			<span class="uabb-icon">
-			<i class="fas fa-phone-alt" aria-hidden="true"></i>
-			</span>
-		</span>
-	
-		</div></div><div class="uabb-info-list-content uabb-info-list-left info-list-content-dynamic0"><h3 class="uabb-info-list-title"></h3><div class="uabb-info-list-description uabb-text-editor info-list-description-dynamic0"><p><a href="tel:+17277844082">+1 (727) 784-4082</a></p></div></div></div><div class="uabb-info-list-connector-top uabb-info-list-left"></div><div class="uabb-info-list-connector uabb-info-list-left"></div></li>	</ul>
+<div class="pp-button-wrap pp-button-width-auto" style="text-align: right;">
+	<a href="https://app.fireflyreservations.com/reserve/property/BayAireRVPark" target="_blank" rel="noopener" class="pp-button header-book-now" role="button" aria-label="Book Now">
+		<span class="pp-button-text">Book Now</span>
+	</a>
 </div>
 	</div>
 </div>
@@ -660,7 +699,7 @@ outline: none;
 					<ul id="menu-main-menu-4" class="menu uabb-creative-menu-horizontal uabb-toggle-none"><li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home uabb-creative-menu uabb-cm-style"><a href="/"><span class="menu-item-text">Home</span></a></li>
 <li id="menu-item-38" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/about-us/"><span class="menu-item-text">About Us</span></a></li>
 <li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-16 current_page_item uabb-creative-menu uabb-cm-style"><a href="/local-attractions/"><span class="menu-item-text">Local Attractions</span></a></li>
-<li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/resort-map-rates/"><span class="menu-item-text">Resort Map &amp; Rates</span></a></li>
+<li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/resort-map-rates/"><span class="menu-item-text">Map &amp; Rates</span></a></li>
 <li id="menu-item-4370" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/rules-and-regulations/"><span class="menu-item-text">Rules &amp; Regulations</span></a></li>
 <li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/contact/"><span class="menu-item-text">Contact</span></a></li>
 </ul>	</div>
@@ -675,7 +714,7 @@ outline: none;
 				<div class="uabb-off-canvas-menu uabb-menu-right"> <div class="uabb-menu-close-btn">×</div>						<ul id="menu-main-menu-5" class="menu uabb-creative-menu-horizontal uabb-toggle-none"><li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home uabb-creative-menu uabb-cm-style"><a href="/"><span class="menu-item-text">Home</span></a></li>
 <li id="menu-item-38" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/about-us/"><span class="menu-item-text">About Us</span></a></li>
 <li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-16 current_page_item uabb-creative-menu uabb-cm-style"><a href="/local-attractions/"><span class="menu-item-text">Local Attractions</span></a></li>
-<li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/resort-map-rates/"><span class="menu-item-text">Resort Map &amp; Rates</span></a></li>
+<li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/resort-map-rates/"><span class="menu-item-text">Map &amp; Rates</span></a></li>
 <li id="menu-item-4370" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/rules-and-regulations/"><span class="menu-item-text">Rules &amp; Regulations</span></a></li>
 <li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/contact/"><span class="menu-item-text">Contact</span></a></li>
 </ul>				</div>
@@ -1153,7 +1192,7 @@ outline: none;
 	<div class="fl-module-content fl-node-content">
 		<div class="fl-menu">
 		<div class="fl-clear"></div>
-	<nav aria-label="Menu" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement"><ul id="menu-main-menu-6" class="menu fl-menu-horizontal fl-toggle-none"><li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a href="/">Home</a></li><li id="menu-item-38" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about-us/">About Us</a></li><li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-16 current_page_item"><a href="/local-attractions/">Local Attractions</a></li><li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/resort-map-rates/">Resort Map &amp; Rates</a></li><li id="menu-item-4370" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/rules-and-regulations/">Rules &amp; Regulations</a></li><li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/contact/">Contact</a></li></ul></nav></div>
+	<nav aria-label="Menu" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement"><ul id="menu-main-menu-6" class="menu fl-menu-horizontal fl-toggle-none"><li id="menu-item-37" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home"><a href="/">Home</a></li><li id="menu-item-38" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/about-us/">About Us</a></li><li id="menu-item-40" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-16 current_page_item"><a href="/local-attractions/">Local Attractions</a></li><li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/resort-map-rates/">Map &amp; Rates</a></li><li id="menu-item-4370" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/rules-and-regulations/">Rules &amp; Regulations</a></li><li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page"><a href="/contact/">Contact</a></li></ul></nav></div>
 	</div>
 </div>
 </div>
