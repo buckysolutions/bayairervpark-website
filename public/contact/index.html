@@ -482,11 +482,187 @@ outline: none;
 }		/* Override all hero/background image overlays with a darker tint for white text contrast */
 .fl-page-content .fl-row-bg-photo .fl-row-content-wrap:after { background-color: rgba(0,0,0,0.45) !important; }
 .fl-page-content .fl-row-bg-photo .fl-row-content { position: relative; z-index: 1; }
-</style>
+
+	/* ========================================
+	   TOP BANNER BAR
+	   ======================================== */
+	.top-banner-bar {
+		background: #1d5171;
+		color: #ffffff;
+		font-family: Lato, sans-serif;
+		font-size: 14px;
+		padding: 8px 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 8px 24px;
+		border-bottom: 1px solid rgba(255,255,255,0.12);
+	}
+	.top-banner-bar .banner-left {
+		display: flex;
+		align-items: center;
+		gap: 0 12px;
+		flex-wrap: wrap;
+	}
+	.top-banner-bar .banner-contact {
+		color: #ffffff;
+		text-decoration: none;
+		display: inline-flex;
+		align-items: center;
+		gap: 6px;
+		white-space: nowrap;
+		transition: opacity 0.2s ease;
+	}
+	.top-banner-bar .banner-contact:hover,
+	.top-banner-bar .banner-contact:focus {
+		color: #ffffff;
+		opacity: 0.85;
+		text-decoration: none;
+		outline: none;
+	}
+	.top-banner-bar .banner-contact i {
+		font-size: 13px;
+		color: #65cbda;
+	}
+	.top-banner-bar .banner-divider {
+		color: rgba(255,255,255,0.25);
+		font-size: 11px;
+		user-select: none;
+	}
+	.top-banner-bar .banner-portal-link {
+		color: #ffffff;
+		text-decoration: none;
+		font-weight: 700;
+		font-size: 13px;
+		letter-spacing: 0.5px;
+		text-transform: uppercase;
+		white-space: nowrap;
+		transition: opacity 0.2s ease;
+	}
+	.top-banner-bar .banner-portal-link:hover,
+	.top-banner-bar .banner-portal-link:focus {
+		color: #65cbda;
+		text-decoration: none;
+		outline: none;
+	}
+
+
+	/* ========================================
+	   EXPAND MAX-WIDTH TO 1600px
+	   ======================================== */
+	header .fl-row-fixed-width {
+		max-width: 1600px !important;
+	}
+
+	/* ========================================
+	   STICKY HEADER - MOBILE
+	   ======================================== */
+	@media screen and (max-width: 768px) {
+		header.fl-builder-content {
+			position: sticky !important;
+			top: 0 !important;
+			z-index: 1000 !important;
+		}
+		.top-banner-bar {
+			font-size: 12px;
+			padding: 6px 12px;
+			gap: 4px 12px;
+		}
+		.fl-photo-img,
+		.pp-photo-img {
+			max-width: 100% !important;
+			height: auto !important;
+		}
+		.fl-photo-content,
+		.pp-photo-content {
+			max-width: 100% !important;
+		}
+		#hbutton {
+			position: relative;
+			z-index: 1001 !important;
+		}
+		#hbutton .pp-button-wrap {
+			text-align: center !important;
+		}
+		#hbutton .header-book-now {
+			display: inline-block !important;
+			width: auto !important;
+			padding: 10px 20px !important;
+			font-size: 14px !important;
+		}
+	}
+
+	/* ========================================
+	   TABLET - HAMBURGER MENU & IMAGE FIXES
+	   ======================================== */
+	@media screen and (max-width: 1200px) and (min-width: 769px) {
+		.fl-visible-medium .uabb-creative-menu .uabb-creative-menu-mobile-toggle {
+			display: block !important;
+		}
+		.fl-visible-medium .uabb-creative-menu .menu.uabb-creative-menu-horizontal {
+			display: none !important;
+		}
+		header.fl-builder-content {
+			position: sticky !important;
+			top: 0 !important;
+			z-index: 1000 !important;
+		}
+		.fl-col-small .fl-photo-img,
+		.fl-col-small .pp-photo-img {
+			width: 100% !important;
+			height: auto !important;
+		}
+		.fl-col-small .fl-photo-content,
+		.fl-col-small .pp-photo-content {
+			max-width: 100% !important;
+		}
+		.top-banner-bar {
+			font-size: 13px;
+			padding: 7px 16px;
+			gap: 4px 16px;
+		}
+	}
+
+	/* ========================================
+	   VERY SMALL PHONES - TOP BANNER
+	   ======================================== */
+	@media screen and (max-width: 375px) {
+		.top-banner-bar {
+			font-size: 11px;
+			padding: 4px 8px;
+			gap: 2px 8px;
+			justify-content: center;
+		}
+		.top-banner-bar .banner-contact {
+			font-size: 11px;
+			gap: 3px;
+		}
+		.top-banner-bar .banner-divider {
+			display: none;
+		}
+	}
+	/* Logo size constraint */
+	header .pp-photo-img.size-full { max-width: 180px !important; height: auto !important; }
+	@media screen and (max-width: 768px) {
+		header .pp-photo-img.size-full { max-width: 140px !important; }
+	}
+
+	</style>
 
 </head>
 <body class="page-template-default page page-id-18 fl-builder fl-builder-2-9-3 fl-themer-1-5-1-1 fl-theme-1-7-18-1 fl-no-js fl-theme-builder-header fl-theme-builder-header-header-menu fl-theme-builder-footer fl-theme-builder-footer-footer-menu fl-framework-base-4 fl-preset-default fl-full-width fl-scroll-to-top fl-search-active" itemscope="itemscope" itemtype="https://schema.org/WebPage">
 <a aria-label="Skip to content" class="fl-screen-reader-text" href="#fl-main-content">Skip to content</a><div class="fl-page">
+<!-- Top Banner Bar -->
+<div class="top-banner-bar">
+	<div class="banner-left">
+		<a href="tel:+17277844082" class="banner-contact"><i class="fas fa-phone-alt"></i> (727) 784-4082</a>
+		<span class="banner-divider">|</span>
+		<a href="mailto:bayairervpark@gmail.com" class="banner-contact"><i class="fas fa-envelope"></i> bayairervpark@gmail.com</a>
+	</div>
+	<a href="https://app.fireflyreservations.com/Reserve/GuestPortal" target="_blank" rel="noopener" class="banner-portal-link">Guest Portal</a>
+</div>
+<!-- End Top Banner Bar -->
 	<header class="fl-builder-content fl-builder-content-50 fl-builder-global-templates-locked" data-post-id="50" data-type="header" data-sticky="0" data-sticky-on="" data-sticky-breakpoint="medium" data-shrink="0" data-overlay="1" data-overlay-bg="transparent" data-shrink-image-height="50px" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader"><div class="fl-row fl-row-full-width fl-row-bg-color fl-node-i28nqrjpob73 fl-row-default-height fl-row-align-center fl-visible-desktop fl-visible-large" data-node="i28nqrjpob73">
 	<div class="fl-row-content-wrap">
 		<div class="uabb-row-separator uabb-top-row-separator">
@@ -502,7 +678,7 @@ outline: none;
 		<div class="pp-photo-content">
 			<div class="pp-photo-content-inner">
 								<a href="/" target="_self" itemprop="url">
-									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/northeast%2Bcampground%2Bbrokers/ncb%2Bwordmark%2Blight.svg" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park">
+									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/bayaire-rv-park/bayaire%2Blogo.png" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park" width="180" height="46" style="max-width:180px;height:auto;">
 					<div class="pp-overlay-bg"></div>
 													</a>
 							</div>
@@ -582,7 +758,7 @@ outline: none;
 		<div class="pp-photo-content">
 			<div class="pp-photo-content-inner">
 								<a href="/" target="_self" itemprop="url">
-									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/northeast%2Bcampground%2Bbrokers/ncb%2Bwordmark%2Blight.svg" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park">
+									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/bayaire-rv-park/bayaire%2Blogo.png" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park" width="180" height="46" style="max-width:180px;height:auto;">
 					<div class="pp-overlay-bg"></div>
 													</a>
 							</div>
@@ -630,7 +806,7 @@ outline: none;
 </div>
 </div>
 </div>
-			<div class="fl-col fl-node-61b199aabb39b fl-col-bg-color fl-col-small fl-col-small-full-width" data-node="61b199aabb39b">
+			<div id="hbutton" class="fl-col fl-node-61b199aabb39b fl-col-bg-color fl-col-small fl-col-small-full-width" data-node="61b199aabb39b">
 	<div class="fl-col-content fl-node-content"><div class="fl-module fl-module-info-list fl-node-61b14d48cfb60" data-node="61b14d48cfb60">
 	<div class="fl-module-content fl-node-content">
 		
@@ -662,7 +838,7 @@ outline: none;
 		<div class="pp-photo-content">
 			<div class="pp-photo-content-inner">
 								<a href="/" target="_self" itemprop="url">
-									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/northeast%2Bcampground%2Bbrokers/ncb%2Bwordmark%2Blight.svg" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park">
+									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/bayaire-rv-park/bayaire%2Blogo.png" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park" width="180" height="46" style="max-width:180px;height:auto;">
 					<div class="pp-overlay-bg"></div>
 													</a>
 							</div>
@@ -827,28 +1003,13 @@ outline: none;
 	<div class="fl-col-content fl-node-content"><div class="fl-module fl-module-info-list fl-node-6139f634c97de ctc-info" data-node="6139f634c97de">
 	<div class="fl-module-content fl-node-content">
 		
-<div class="uabb-module-content uabb-info-list">
-	<ul class="uabb-info-list-wrapper uabb-info-list-left">
-		<li class="uabb-info-list-item info-list-item-dynamic0"><div class="uabb-info-list-content-wrapper fl-clearfix uabb-info-list-left"><div class="uabb-info-list-icon info-list-icon-dynamic0"><div class="uabb-module-content uabb-imgicon-wrap">				<span class="uabb-icon-wrap">
-			<span class="uabb-icon">
-			<i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-			</span>
-		</span>
-	
-		</div></div><div class="uabb-info-list-content uabb-info-list-left info-list-content-dynamic0"><h2 class="uabb-info-list-title"></h2><div class="uabb-info-list-description uabb-text-editor info-list-description-dynamic0"><p><a href="https://goo.gl/maps/62vNAHZnP2hpM11b9" target="_blank" rel="noopener">2242 Alt 19<br>Palm Harbor, FL 34683</a></p></div></div></div><div class="uabb-info-list-connector-top uabb-info-list-left"></div><div class="uabb-info-list-connector uabb-info-list-left"></div></li><li class="uabb-info-list-item info-list-item-dynamic1"><div class="uabb-info-list-content-wrapper fl-clearfix uabb-info-list-left"><div class="uabb-info-list-icon info-list-icon-dynamic1"><div class="uabb-module-content uabb-imgicon-wrap">				<span class="uabb-icon-wrap">
-			<span class="uabb-icon">
-			<i class="fas fa-phone-alt" aria-hidden="true"></i>
-			</span>
-		</span>
-	
-		</div></div><div class="uabb-info-list-content uabb-info-list-left info-list-content-dynamic1"><h2 class="uabb-info-list-title"></h2><div class="uabb-info-list-description uabb-text-editor info-list-description-dynamic1"><p><a href="tel:+17277844082">+1 (727) 784-4082</a></p></div></div></div><div class="uabb-info-list-connector-top uabb-info-list-left"></div><div class="uabb-info-list-connector uabb-info-list-left"></div></li><li class="uabb-info-list-item info-list-item-dynamic2"><div class="uabb-info-list-content-wrapper fl-clearfix uabb-info-list-left"><div class="uabb-info-list-icon info-list-icon-dynamic2"><div class="uabb-module-content uabb-imgicon-wrap">				<span class="uabb-icon-wrap">
-			<span class="uabb-icon">
-			<i class="fas fa-envelope" aria-hidden="true"></i>
-			</span>
-		</span>
-	
-		</div></div><div class="uabb-info-list-content uabb-info-list-left info-list-content-dynamic2"><h2 class="uabb-info-list-title"></h2><div class="uabb-info-list-description uabb-text-editor info-list-description-dynamic2"><p><a href="mailto:bayairervpark@gmail.com">bayairervpark@gmail.com</a></p></div></div></div><div class="uabb-info-list-connector-top uabb-info-list-left"></div><div class="uabb-info-list-connector uabb-info-list-left"></div></li>	</ul>
+
+<div class="pp-button-wrap pp-button-width-auto">
+	<a href="#" target="_self" class="pp-button" role="button" aria-label="Book Now" style="padding: 10px 20px; display: inline-block;">
+		<span class="pp-button-text">Book Now</span>
+	</a>
 </div>
+
 	</div>
 </div>
 </div>
