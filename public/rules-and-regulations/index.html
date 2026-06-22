@@ -89,6 +89,13 @@ header .uabb-creative-menu .menu.uabb-creative-menu-horizontal > li:last-child {
 
 /* Widen header & banner containers to 1600px */
 header .fl-row-fixed-width { max-width: 1600px !important; }
+	/* Off-canvas mobile menu */
+	.uabb-off-canvas-menu .menu { padding: 20px 0; }
+	.uabb-off-canvas-menu .menu li { border-bottom: 1px solid rgba(255,255,255,0.08); }
+	.uabb-off-canvas-menu .menu li a { display: block; padding: 14px 25px; font-size: 16px; color: #fff !important; font-family: Jost, sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+	.uabb-off-canvas-menu .menu li a:hover { background: rgba(255,255,255,0.06); }
+	.uabb-off-canvas-menu .menu li#menu-item-book-now a { background: #65cbda; color: #fff !important; margin: 10px 20px; text-align: center; padding: 12px 20px; }
+	.uabb-off-canvas-menu .menu li#menu-item-book-now a:hover { background: #15b2d1; }
 
 /* Spread header row to container edges so logo & button align with banner */
 header .fl-col-group.fl-col-group-equal-height.fl-col-group-align-center {
@@ -444,27 +451,18 @@ outline: none;
  screen and (max-width: 480px) {
     /* Mobile header - proper layout with spacing */
     header .fl-row-content-wrap {
-        padding: 8px 10px !important;
+        padding: 8px 12px !important;
     }
     #hlogo {
-        width: 55% !important;
+        width: 58% !important;
     }
     #hlogo .pp-photo-content-inner img {
-        width: 130px !important;
+        width: 120px !important;
     }
     #hmenu {
-        width: 45% !important;
+        width: 42% !important;
     }
-    #hbutton {
-        width: 100% !important;
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        margin-top: 5px !important;
-        text-align: center !important;
-    }
-    #hbutton .pp-button-wrap {
-        text-align: center !important;
-    }
+
     /* Mobile hero - reduce padding so image is visible */
     .fl-visible-mobile.fl-row-bg-photo > .fl-row-content-wrap {
         padding-top: 60px !important;
@@ -506,6 +504,23 @@ outline: none;
 }		/* Override all hero/background image overlays with a darker tint for white text contrast */
 .fl-page-content .fl-row-bg-photo .fl-row-content-wrap:after { background: linear-gradient(to bottom, rgba(0,0,0,0.50) 0%, rgba(0,0,0,0) 65%) !important; }
 .fl-page-content .fl-row-bg-photo .fl-row-content { position: relative; z-index: 1; }
+/* Interior page mobile fixes */
+@media screen and (max-width: 768px) {
+  .inner-hero .heading-title { font-size: 38px !important; }
+  .fl-rich-text p { font-size: 15px !important; line-height: 1.7 !important; }
+  .fl-rich-text p strong { display: inline-block; }
+  /* Prevent long labels from breaking layout */
+  .fl-rich-text { word-wrap: break-word; overflow-wrap: break-word; }
+  /* Hero tighter */
+  .fl-node-616680044c1c9 > .fl-row-content-wrap { padding-top: 60px !important; padding-bottom: 60px !important; }
+}
+@media screen and (max-width: 480px) {
+  .inner-hero .heading-title { font-size: 30px !important; }
+  .fl-rich-text p { font-size: 14px !important; }
+  /* CTA row */
+  .fl-node-616680044c1da .fl-rich-text { font-size: 14px !important; }
+}
+
 
 	/* ========================================
 	   TOP BANNER BAR
@@ -599,19 +614,6 @@ outline: none;
 		.fl-photo-content,
 		.pp-photo-content {
 			max-width: 100% !important;
-		}
-		#hbutton {
-			position: relative;
-			z-index: 1001 !important;
-		}
-		#hbutton .pp-button-wrap {
-			text-align: center !important;
-		}
-		#hbutton .header-book-now {
-			display: inline-block !important;
-			width: auto !important;
-			padding: 10px 20px !important;
-			font-size: 14px !important;
 		}
 	}
 
@@ -743,6 +745,8 @@ outline: none;
 <li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/map-rates/"><span class="menu-item-text">Map &amp; Rates</span></a></li>
 <li id="menu-item-4370" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4368 current_page_item uabb-creative-menu uabb-cm-style"><a href="/rules-and-regulations/"><span class="menu-item-text">Rules &amp; Regulations</span></a></li>
 <li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/contact/"><span class="menu-item-text">Contact</span></a></li>
+	<li id="menu-item-book-now" class="menu-item menu-item-type-custom menu-item-object-custom uabb-creative-menu uabb-cm-style"><a href="https://app.fireflyreservations.com/reserve/property/BayAireRVPark" target="_blank" rel="noopener"><span class="menu-item-text">Book Now</span></a></li>
+
 </ul>				</div>
 			</div>
 				</div>
@@ -823,25 +827,15 @@ outline: none;
 <li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/map-rates/"><span class="menu-item-text">Map &amp; Rates</span></a></li>
 <li id="menu-item-4370" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4368 current_page_item uabb-creative-menu uabb-cm-style"><a href="/rules-and-regulations/"><span class="menu-item-text">Rules &amp; Regulations</span></a></li>
 <li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/contact/"><span class="menu-item-text">Contact</span></a></li>
+	<li id="menu-item-book-now" class="menu-item menu-item-type-custom menu-item-object-custom uabb-creative-menu uabb-cm-style"><a href="https://app.fireflyreservations.com/reserve/property/BayAireRVPark" target="_blank" rel="noopener"><span class="menu-item-text">Book Now</span></a></li>
+
 </ul>				</div>
 			</div>
 				</div>
 </div>
 </div>
 </div>
-			<div id="hbutton" class="fl-col fl-node-61b199aabb39b fl-col-bg-color fl-col-small fl-col-small-full-width" data-node="61b199aabb39b">
-	<div class="fl-col-content fl-node-content"><div class="fl-module fl-module-info-list fl-node-61b14d48cfb60" data-node="61b14d48cfb60">
-	<div class="fl-module-content fl-node-content">
-		
-<div class="pp-button-wrap pp-button-width-auto" style="text-align: right;">
-	<a href="https://app.fireflyreservations.com/reserve/property/BayAireRVPark" target="_blank" rel="noopener" class="pp-button header-book-now" role="button" aria-label="Book Now">
-		<span class="pp-button-text">Book Now</span>
-	</a>
-</div>
-	</div>
-</div>
-</div>
-</div>
+			
 	</div>
 		</div>
 	</div>
@@ -916,6 +910,8 @@ outline: none;
 <li id="menu-item-4389" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/map-rates/"><span class="menu-item-text">Map &amp; Rates</span></a></li>
 <li id="menu-item-4370" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-4368 current_page_item uabb-creative-menu uabb-cm-style"><a href="/rules-and-regulations/"><span class="menu-item-text">Rules &amp; Regulations</span></a></li>
 <li id="menu-item-39" class="menu-item menu-item-type-post_type menu-item-object-page uabb-creative-menu uabb-cm-style"><a href="/contact/"><span class="menu-item-text">Contact</span></a></li>
+	<li id="menu-item-book-now" class="menu-item menu-item-type-custom menu-item-object-custom uabb-creative-menu uabb-cm-style"><a href="https://app.fireflyreservations.com/reserve/property/BayAireRVPark" target="_blank" rel="noopener"><span class="menu-item-text">Book Now</span></a></li>
+
 </ul>				</div>
 			</div>
 				</div>
