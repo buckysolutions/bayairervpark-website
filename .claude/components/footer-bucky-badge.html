@@ -1,0 +1,37 @@
+---
+name: footer-bucky-badge
+description: Reusable footer "Partnered with Bucky" badge component
+version: 1.0.0
+---
+
+<!--
+  ============================================
+  FOOTER — BUCKY SOLUTIONS PARTNER BADGE
+  ============================================
+  
+  Usage: Place this HTML inside the footer copyright row's right column.
+  The copyright row should have two columns side-by-side using
+  .fl-col-group-equal-height.fl-col-group-align-center.
+  
+  Logo: https://assets.buckysolutions.com/bucky%2Blogo%2Bwhite.svg
+  (always white variant for dark footer backgrounds)
+-->
+
+<!-- HTML — add inside the right column's .fl-rich-text div -->
+<div class="footer-bucky-badge">
+	<span>Partnered with</span>
+	<a href="https://buckysolutions.com" target="_blank" rel="noopener" title="Bucky Solutions">
+		<img src="https://assets.buckysolutions.com/bucky%2Blogo%2Bwhite.svg" alt="Bucky Solutions" width="90" height="18" loading="lazy">
+	</a>
+</div>
+
+<!-- CSS — add to your site's <style> block -->
+<style>
+.footer-bucky-badge { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
+.footer-bucky-badge span { font-family: Lato, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); white-space: nowrap; }
+.footer-bucky-badge img { display: block; height: 18px; width: auto; opacity: 0.75; transition: opacity .2s; }
+.footer-bucky-badge a:hover img { opacity: 1; }
+@media screen and (max-width: 768px) {
+	.footer-bucky-badge { justify-content: center; margin-top: 10px; }
+}
+</style>

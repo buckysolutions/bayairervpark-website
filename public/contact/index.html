@@ -656,6 +656,15 @@ outline: none;
 		header .pp-photo-img.size-full { max-width: 140px !important; }
 	}
 
+
+	/* Footer — Bucky badge */
+	.footer-bucky-badge { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
+	.footer-bucky-badge span { font-family: Lato, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); white-space: nowrap; }
+	.footer-bucky-badge img { display: block; height: 18px; width: auto; opacity: 0.75; transition: opacity .2s; }
+	.footer-bucky-badge a:hover img { opacity: 1; }
+	@media screen and (max-width: 768px) {
+		.footer-bucky-badge { justify-content: center; margin-top: 10px; }
+	}
 	</style>
 
 </head>
@@ -1316,8 +1325,13 @@ outline: none;
 	<div class="fl-col-content fl-node-content"><div class="fl-module fl-module-rich-text fl-node-61b1880f328c1" data-node="61b1880f328c1">
 	<div class="fl-module-content fl-node-content">
 		<div class="fl-rich-text">
-	
-</div>
+		<div class="footer-bucky-badge">
+			<span>Partnered with</span>
+			<a href="https://buckysolutions.com" target="_blank" rel="noopener" title="Bucky Solutions">
+				<img src="https://assets.buckysolutions.com/bucky%2Blogo%2Bwhite.svg" alt="Bucky Solutions" width="90" height="18" loading="lazy">
+			</a>
+		</div>
+	</div>
 	</div>
 </div>
 </div>
