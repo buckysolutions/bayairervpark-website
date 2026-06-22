@@ -87,6 +87,24 @@ header .uabb-creative-menu .menu.uabb-creative-menu-horizontal > li {
 header .uabb-creative-menu .menu.uabb-creative-menu-horizontal > li:last-child {
     margin-right: 0 !important;
 }
+
+/* Center desktop header row as a group */
+header .fl-col-group.fl-col-group-equal-height.fl-col-group-align-center {
+    justify-content: center !important;
+}
+header .fl-col-group.fl-col-group-equal-height.fl-col-group-align-center .fl-col-small {
+    width: auto !important;
+    max-width: none !important;
+    flex: 0 0 auto !important;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+header .fl-col-group.fl-col-group-equal-height.fl-col-group-align-center .fl-col.fl-col-bg-color:not(.fl-col-small) {
+    flex: 0 0 auto !important;
+    width: auto !important;
+    padding-left: 25px;
+    padding-right: 25px;
+}
 a.header-book-now, a.header-book-now:visited {
     text-decoration: none !important;
     background: #65cbda !important;
@@ -610,13 +628,17 @@ outline: none;
 		color: #ffffff;
 		font-family: Lato, sans-serif;
 		font-size: 14px;
+		border-bottom: 1px solid rgba(255,255,255,0.12);
+	}
+	.top-banner-bar .banner-inner {
+		max-width: 1200px;
+		margin: 0 auto;
 		padding: 10px 20px;
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
 		align-items: center;
 		flex-wrap: wrap;
 		gap: 12px 32px;
-		border-bottom: 1px solid rgba(255,255,255,0.12);
 	}
 	.top-banner-bar .banner-left {
 		display: flex;
@@ -667,12 +689,6 @@ outline: none;
 	}
 
 
-	/* ========================================
-	   EXPAND MAX-WIDTH TO 1600px
-	   ======================================== */
-	header .fl-row-fixed-width {
-		max-width: 1600px !important;
-	}
 
 	/* ========================================
 	   STICKY HEADER - MOBILE
@@ -683,7 +699,7 @@ outline: none;
 			top: 0 !important;
 			z-index: 1000 !important;
 		}
-		.top-banner-bar {
+		.top-banner-bar .banner-inner {
 			font-size: 12px;
 			padding: 6px 12px;
 			gap: 4px 12px;
@@ -736,7 +752,7 @@ outline: none;
 		.fl-col-small .pp-photo-content {
 			max-width: 100% !important;
 		}
-		.top-banner-bar {
+		.top-banner-bar .banner-inner {
 			font-size: 13px;
 			padding: 7px 16px;
 			gap: 4px 16px;
@@ -747,7 +763,7 @@ outline: none;
 	   VERY SMALL PHONES - TOP BANNER
 	   ======================================== */
 	@media screen and (max-width: 375px) {
-		.top-banner-bar {
+		.top-banner-bar .banner-inner {
 			font-size: 11px;
 			padding: 4px 8px;
 			gap: 2px 8px;
@@ -762,9 +778,9 @@ outline: none;
 		}
 	}
 	/* Logo size constraint */
-	header .pp-photo-img.size-full { max-width: 180px !important; height: auto !important; }
+	header .pp-photo-img.size-full { max-width: 130px !important; height: auto !important; }
 	@media screen and (max-width: 768px) {
-		header .pp-photo-img.size-full { max-width: 140px !important; }
+		header .pp-photo-img.size-full { max-width: 110px !important; }
 	}
 
 	</style>
@@ -773,12 +789,14 @@ outline: none;
 <a aria-label="Skip to content" class="fl-screen-reader-text" href="#fl-main-content">Skip to content</a><div class="fl-page">
 <!-- Top Banner Bar -->
 <div class="top-banner-bar">
-	<div class="banner-left">
-		<a href="tel:+17277844082" class="banner-contact"><i class="fas fa-phone-alt"></i> (727) 784-4082</a>
-		<span class="banner-divider">|</span>
-		<a href="mailto:bayairervpark@gmail.com" class="banner-contact"><i class="fas fa-envelope"></i> bayairervpark@gmail.com</a>
+	<div class="banner-inner">
+		<div class="banner-left">
+			<a href="tel:+17277844082" class="banner-contact"><i class="fas fa-phone-alt"></i> (727) 784-4082</a>
+			<span class="banner-divider">|</span>
+			<a href="mailto:bayairervpark@gmail.com" class="banner-contact"><i class="fas fa-envelope"></i> bayairervpark@gmail.com</a>
+		</div>
+		<a href="https://app.fireflyreservations.com/kiosk/property/bayairervpark" target="_blank" rel="noopener" class="banner-portal-link">Guest Portal</a>
 	</div>
-	<a href="https://app.fireflyreservations.com/kiosk/property/bayairervpark" target="_blank" rel="noopener" class="banner-portal-link">Guest Portal</a>
 </div>
 <!-- End Top Banner Bar -->
 	<header class="fl-builder-content fl-builder-content-50 fl-builder-global-templates-locked" data-post-id="50" data-type="header" data-sticky="0" data-sticky-on="" data-sticky-breakpoint="medium" data-shrink="0" data-overlay="1" data-overlay-bg="transparent" data-shrink-image-height="50px" role="banner" itemscope="itemscope" itemtype="http://schema.org/WPHeader"><div class="fl-row fl-row-full-width fl-row-bg-color fl-node-i28nqrjpob73 fl-row-default-height fl-row-align-center fl-visible-desktop fl-visible-large" data-node="i28nqrjpob73">
@@ -796,7 +814,7 @@ outline: none;
 		<div class="pp-photo-content">
 			<div class="pp-photo-content-inner">
 								<a href="/" target="_self" itemprop="url">
-									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/bayaire-rv-park/bayaire%2Blogo.png" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park" width="180" height="46" style="max-width:180px;height:auto;">
+									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/bayaire-rv-park/bayaire%2Blogo.png" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park" width="130" height="33" style="max-width:130px;height:auto;">
 					<div class="pp-overlay-bg"></div>
 													</a>
 							</div>
@@ -876,7 +894,7 @@ outline: none;
 		<div class="pp-photo-content">
 			<div class="pp-photo-content-inner">
 								<a href="/" target="_self" itemprop="url">
-									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/bayaire-rv-park/bayaire%2Blogo.png" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park" width="180" height="46" style="max-width:180px;height:auto;">
+									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/bayaire-rv-park/bayaire%2Blogo.png" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park" width="130" height="33" style="max-width:130px;height:auto;">
 					<div class="pp-overlay-bg"></div>
 													</a>
 							</div>
@@ -956,7 +974,7 @@ outline: none;
 		<div class="pp-photo-content">
 			<div class="pp-photo-content-inner">
 								<a href="/" target="_self" itemprop="url">
-									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/bayaire-rv-park/bayaire%2Blogo.png" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park" width="180" height="46" style="max-width:180px;height:auto;">
+									<img loading="lazy" decoding="async" class="pp-photo-img size-full" src="https://assets.buckysolutions.com/clients/bayaire-rv-park/bayaire%2Blogo.png" alt="Bay Aire RV Park" itemprop="image" title="Bay Aire RV Park" width="130" height="33" style="max-width:130px;height:auto;">
 					<div class="pp-overlay-bg"></div>
 													</a>
 							</div>
@@ -1037,7 +1055,7 @@ outline: none;
 
 			<div class="fl-post-content clearfix" itemprop="text">
 		<div class="fl-builder-content fl-builder-content-12 fl-builder-content-primary fl-builder-global-templates-locked" data-post-id="12"><div id="hero-row" class="fl-row fl-row-full-width fl-row-bg-photo fl-node-6139b0bd0c764 fl-row-custom-height fl-row-align-center fl-row-bg-overlay fl-visible-desktop fl-visible-large fl-visible-medium" data-node="6139b0bd0c764">
-	<div class="fl-row-content-wrap" style="padding-top: 80px;">
+	<div class="fl-row-content-wrap" style="padding-top: 140px;">
 		<div class="uabb-row-separator uabb-top-row-separator">
 </div>
 						<div class="fl-row-content fl-row-fixed-width fl-node-content">
@@ -1047,35 +1065,11 @@ outline: none;
 	<div class="fl-col-content fl-node-content">
 <div class="fl-col-group fl-node-613f405ddfc00 fl-col-group-nested fl-col-group-equal-height fl-col-group-align-top fl-col-group-custom-width" data-node="613f405ddfc00">
 			<div class="fl-col fl-node-613f405ddfd60 fl-col-bg-color fl-col-small-custom-width your-col" data-node="613f405ddfd60">
-	<div class="fl-col-content fl-node-content"><div class="fl-module fl-module-pp-heading fl-node-613f406b35f44" data-node="613f406b35f44">
-	<div class="fl-module-content fl-node-content">
-		<div class="pp-heading-content">
-		<div class="pp-heading pp-center">
-		
-		<div class="heading-title">
-
-			
-			<span class="title-text pp-primary-title">WELCOME</span>
-
-			
-			
-		</div>
-
-		
-	</div>
-
-	
-	</div>
-	</div>
-</div>
+	<div class="fl-col-content fl-node-content">
 </div>
 </div>
 	</div>
-<div class="fl-module fl-module-separator fl-node-613f40ec74b33" data-node="613f40ec74b33">
-	<div class="fl-module-content fl-node-content">
-		<div class="fl-separator"></div>
-	</div>
-</div>
+
 <div class="fl-module fl-module-pp-heading fl-node-6139b2ae1b22f" data-node="6139b2ae1b22f">
 	<div class="fl-module-content fl-node-content">
 		<div class="pp-heading-content">
@@ -1084,7 +1078,7 @@ outline: none;
 		<div class="heading-title">
 
 			
-			<span class="title-text pp-primary-title">TO YOUR GETAWAY NESTLED ON THE FLORIDA GULF COAST</span>
+			<span class="title-text pp-primary-title">Welcome to Your Getaway Nestled on the Florida Gulf Coast</span>
 
 			
 			
@@ -1193,35 +1187,11 @@ outline: none;
 	<div class="fl-col-content fl-node-content">
 <div class="fl-col-group fl-node-61569b55da3bf fl-col-group-nested fl-col-group-equal-height fl-col-group-align-top fl-col-group-custom-width" data-node="61569b55da3bf">
 			<div class="fl-col fl-node-61569b55da3c0 fl-col-bg-color fl-col-small-custom-width your-col" data-node="61569b55da3c0">
-	<div class="fl-col-content fl-node-content"><div class="fl-module fl-module-pp-heading fl-node-61569b55da3c1" data-node="61569b55da3c1">
-	<div class="fl-module-content fl-node-content">
-		<div class="pp-heading-content">
-		<div class="pp-heading pp-center">
-		
-		<div class="heading-title">
-
-			
-			<span class="title-text pp-primary-title">Welcome</span>
-
-			
-			
-		</div>
-
-		
-	</div>
-
-	
-	</div>
-	</div>
-</div>
+	<div class="fl-col-content fl-node-content">
 </div>
 </div>
 	</div>
-<div class="fl-module fl-module-separator fl-node-61569b55da3c2" data-node="61569b55da3c2">
-	<div class="fl-module-content fl-node-content">
-		<div class="fl-separator"></div>
-	</div>
-</div>
+
 <div class="fl-module fl-module-pp-heading fl-node-61569b55da3c3" data-node="61569b55da3c3">
 	<div class="fl-module-content fl-node-content">
 		<div class="pp-heading-content">
@@ -1230,7 +1200,7 @@ outline: none;
 		<div class="heading-title">
 
 			
-			<span class="title-text pp-primary-title">TO YOUR GETAWAY NESTLED ON THE FLORIDA GULF COAST</span>
+			<span class="title-text pp-primary-title">Welcome to Your Getaway Nestled on the Florida Gulf Coast</span>
 
 			
 			
