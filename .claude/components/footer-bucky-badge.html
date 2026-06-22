@@ -1,7 +1,7 @@
 ---
 name: footer-bucky-badge
-description: Reusable footer "Partnered with Bucky" badge component
-version: 1.0.0
+description: Reusable footer "Partnered with Bucky" badge — inherits surrounding styles
+version: 1.1.0
 ---
 
 <!--
@@ -9,29 +9,28 @@ version: 1.0.0
   FOOTER — BUCKY SOLUTIONS PARTNER BADGE
   ============================================
   
-  Usage: Place this HTML inside the footer copyright row's right column.
-  The copyright row should have two columns side-by-side using
-  .fl-col-group-equal-height.fl-col-group-align-center.
+  The badge inherits its color from the footer so it always matches
+  the surroundings. The entire row (text + logo) is one clickable link.
+  Font is Host Grotesk with fallbacks.
   
   Logo: https://assets.buckysolutions.com/bucky%2Blogo%2Bwhite.svg
-  (always white variant for dark footer backgrounds)
+  
+  Usage: Place the HTML inside the footer copyright row's right column
+  (the .fl-rich-text div), and add the CSS to the site's <style> block.
 -->
 
-<!-- HTML — add inside the right column's .fl-rich-text div -->
+<!-- HTML -->
 <div class="footer-bucky-badge">
-	<span>Partnered with</span>
 	<a href="https://buckysolutions.com" target="_blank" rel="noopener" title="Bucky Solutions">
+		<span>Partnered with</span>
 		<img src="https://assets.buckysolutions.com/bucky%2Blogo%2Bwhite.svg" alt="Bucky Solutions" width="90" height="18" loading="lazy">
 	</a>
 </div>
 
-<!-- CSS — add to your site's <style> block -->
+<!-- CSS -->
 <style>
-.footer-bucky-badge { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
-.footer-bucky-badge span { font-family: Lato, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); white-space: nowrap; }
-.footer-bucky-badge img { display: block; height: 18px; width: auto; opacity: 0.75; transition: opacity .2s; }
-.footer-bucky-badge a:hover img { opacity: 1; }
-@media screen and (max-width: 768px) {
-	.footer-bucky-badge { justify-content: center; margin-top: 10px; }
-}
+.footer-bucky-badge { display: flex; align-items: center; justify-content: center; width: 100%; }
+.footer-bucky-badge a { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; font-family: 'Host Grotesk', 'Inter', system-ui, sans-serif; font-size: 13px; transition: color .2s, opacity .2s; }
+.footer-bucky-badge a:hover { color: inherit; opacity: 0.8; }
+.footer-bucky-badge a img { display: block; height: 18px; width: auto; }
 </style>

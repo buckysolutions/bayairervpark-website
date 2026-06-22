@@ -681,13 +681,12 @@ outline: none;
 
 
 	/* Footer — Bucky badge */
-	.footer-bucky-badge { display: flex; align-items: center; justify-content: flex-end; gap: 10px; }
-	.footer-bucky-badge span { font-family: Lato, sans-serif; font-size: 13px; color: rgba(255,255,255,0.6); white-space: nowrap; }
-	.footer-bucky-badge img { display: block; height: 18px; width: auto; opacity: 0.75; transition: opacity .2s; }
-	.footer-bucky-badge a:hover img { opacity: 1; }
-	@media screen and (max-width: 768px) {
-		.footer-bucky-badge { justify-content: center; margin-top: 10px; }
-	}
+
+	/* Footer — Bucky badge (centered, inherits surroundings) */
+	.footer-bucky-badge { display: flex; align-items: center; justify-content: center; width: 100%; }
+	.footer-bucky-badge a { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; font-family: 'Host Grotesk', 'Inter', system-ui, sans-serif; font-size: 13px; transition: color .2s, opacity .2s; }
+	.footer-bucky-badge a:hover { color: inherit; opacity: 0.8; }
+	.footer-bucky-badge a img { display: block; height: 18px; width: auto; }
 	</style>
 		</head>
 <body class="page-template-default page page-id-14 fl-builder fl-builder-2-9-3 fl-themer-1-5-1-1 fl-theme-1-7-18-1 fl-no-js fl-theme-builder-header fl-theme-builder-header-header-menu fl-theme-builder-footer fl-theme-builder-footer-footer-menu fl-framework-base-4 fl-preset-default fl-full-width fl-scroll-to-top fl-search-active" itemscope="itemscope" itemtype="https://schema.org/WebPage">
@@ -1433,8 +1432,8 @@ outline: none;
 	<div class="fl-module-content fl-node-content">
 		<div class="fl-rich-text">
 		<div class="footer-bucky-badge">
-			<span>Partnered with</span>
 			<a href="https://buckysolutions.com" target="_blank" rel="noopener" title="Bucky Solutions">
+				<span>Partnered with</span>
 				<img src="https://assets.buckysolutions.com/bucky%2Blogo%2Bwhite.svg" alt="Bucky Solutions" width="90" height="18" loading="lazy">
 			</a>
 		</div>
