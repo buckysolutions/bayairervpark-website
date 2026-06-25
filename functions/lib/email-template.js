@@ -36,14 +36,14 @@ export function buildContactEmail(data) {
 
     <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center"><![endif]-->
 
-    <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="background-color: #E3E3E3; padding: 40px 20px; min-height: 100vh;">
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="background-color: #E3E3E3; padding: 24px 20px;">
         <tr>
             <td align="center" valign="top">
 
                 <!-- Main card: fluid width, capped at 600px -->
                 <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" class="email-inner" style="max-width: 600px; background-color: #FEFDFA; border-top: 4px solid #2da4a9; margin: 0 auto; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
                     <tr>
-                        <td class="email-padding" style="padding: 50px 50px 50px 50px;">
+                        <td class="email-padding" style="padding: 40px 40px 30px 40px;">
 
                             <img src="https://assets.buckysolutions.com/bucky%2Blogo.png" alt="bucky" width="110" class="email-logo" style="display: block; max-width: 110px; width: 100%; height: auto; margin-bottom: 40px; border: 0;">
 
@@ -84,7 +84,7 @@ export function buildContactEmail(data) {
                 <!-- Footer -->
                 <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" class="email-inner" style="max-width: 600px; margin: 0 auto;">
                     <tr>
-                        <td align="center" style="padding: 25px 0; color: #999999; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                        <td align="center" style="padding: 15px 0 0 0; color: #999999; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
                             &copy; ${year} Bucky Solutions LLC &middot; All Rights Reserved
                         </td>
                     </tr>

@@ -24,7 +24,7 @@ export async function sendEmail(opts, env) {
   const fromEmail = read(env, "SES_FROM_EMAIL");
 
   const body = JSON.stringify({
-    FromEmailAddress: fromEmail,
+    FromEmailAddress: `Bucky Solutions <${fromEmail}>`,
     Destination: { ToAddresses: [opts.to] },
     Content: {
       Simple: {
