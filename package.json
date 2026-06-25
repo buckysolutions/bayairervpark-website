@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "http-server public -p 4321 -a 127.0.0.1 -c-1",
+    "dev": "npx wrangler@latest pages dev public --compatibility-date=2026-05-07 --port 4321",
     "build": "astro build",
     "preview": "http-server dist -p 4322 -a 127.0.0.1 -c-1",
     "cf:preview": "npx wrangler@latest pages dev dist --compatibility-date=2026-05-07 --port 8788",

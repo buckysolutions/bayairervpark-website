@@ -1,0 +1,8 @@
+# Copy to .dev.vars and fill in real values for local testing
+# .dev.vars is gitignored — never commit real credentials
+
+AWS_ACCESS_KEY_ID=your-access-key-id
+AWS_SECRET_ACCESS_KEY=your-secret-access-key
+AWS_REGION=us-east-1
+SES_FROM_EMAIL=hello@bayairervpark.com
+SES_TO_EMAIL=bayairervpark@gmail.com
