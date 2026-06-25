@@ -642,59 +642,6 @@ outline: none;
 	.footer-bucky-badge a:hover { color: inherit; opacity: 0.8; }
 	.footer-bucky-badge a img { display: block; height: 18px; width: auto; }
 	</style>
-<script>
-(function(){
-  var form = document.getElementById('contact-form');
-  if (!form) return;
-  var btn  = form.querySelector('.contact-submit-btn');
-  var disc = form.querySelector('.contact-form-disclosure');
-  var origBtnText = btn.textContent;
-  var origDiscText = disc.textContent;
-  var origDiscClass = disc.className;
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var fields = form.querySelectorAll('[required]');
-    for (var i=0; i<fields.length; i++){
-      if (!fields[i].value.trim()){
-        fields[i].focus();
-        setMsg('Please fill out all required fields.', 'error');
-        return;
-      }
-    }
-    var email = form.querySelector('[name="email"]');
-    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){
-      email.focus();
-      setMsg('Please enter a valid email address.', 'error');
-      return;
-    }
-    setMsg('Sending…', '');
-    btn.disabled = true;
-    btn.textContent = 'Sending…';
-    var data = new FormData(form);
-    fetch('/api/contact', { method:'POST', body:data })
-      .then(function(r){ return r.json(); })
-      .then(function(d){
-        if (d.ok){
-          setMsg('✓ Thanks! We\'ll get back to you soon.', 'success');
-          form.reset();
-        } else {
-          setMsg(d.error || 'Something went wrong. Please try again.', 'error');
-        }
-      })
-      .catch(function(){
-        setMsg('Network error — please try again.', 'error');
-      })
-      .finally(function(){
-        btn.disabled = false;
-        btn.textContent = origBtnText;
-      });
-    function setMsg(text, type){
-      disc.textContent = text;
-      disc.className = origDiscClass + ' cf-status cf-status--' + type;
-    }
-  });
-})();
-</script>
 
 </head>
 <body class="page-template-default page page-id-18 fl-builder fl-builder-2-9-3 fl-themer-1-5-1-1 fl-theme-1-7-18-1 fl-no-js fl-theme-builder-header fl-theme-builder-header-header-menu fl-theme-builder-footer fl-theme-builder-footer-footer-menu fl-framework-base-4 fl-preset-default fl-full-width fl-scroll-to-top fl-search-active" itemscope="itemscope" itemtype="https://schema.org/WebPage">
@@ -1013,7 +960,7 @@ outline: none;
 			<div class="contact-form-card-inner">
 				<h2 class="contact-form-title">Get In Touch</h2>
 				<p class="contact-form-subtitle">Have questions? We'd love to hear from you.</p>
-				<form id="contact-form" class="static-contact-form" method="post" action="/api/contact" novalidate>
+				<form id="contact-form" class="static-contact-form" method="post" novalidate>
 					<div class="static-form-row">
 						<input type="text" name="first_name" placeholder="First Name" required>
 						<input type="text" name="last_name" placeholder="Last Name" required>
@@ -1421,5 +1368,80 @@ var themeopts = {"medium_breakpoint":"1200","mobile_breakpoint":"768","lightbox"
 <script src="/assets/ui/bb-theme/js/theme.min.js?ver=1.7.18.1" id="fl-automator-js"></script>
 
 		
-		</body>
+		<script>
+(function(){
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+
+  var btn    = form.querySelector('.contact-submit-btn');
+  var origBtnText = btn.textContent;
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    var reqs = form.querySelectorAll('[required]');
+    for (var i = 0; i < reqs.length; i++){
+      if (!reqs[i].value.trim()){
+        reqs[i].focus();
+        shake('Please fill out all required fields.');
+        return;
+      }
+    }
+    var email = form.querySelector('[name="email"]');
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)){
+      email.focus();
+      shake('Please enter a valid email address.');
+      return;
+    }
+
+    btn.textContent = 'Sending\u2026';
+    btn.disabled = true;
+    btn.style.opacity = '0.7';
+
+    var data = new FormData(form);
+    fetch('/api/contact', { method:'POST', body:data })
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if (d.ok){
+          success();
+        } else {
+          shake(d.error || 'Something went wrong. Please try again.');
+        }
+      })
+      .catch(function(){
+        shake('Network error \u2014 please try again.');
+      })
+      .finally(function(){
+        btn.disabled = false;
+        btn.style.opacity = '1';
+        btn.textContent = origBtnText;
+      });
+
+    function success(){
+      var rows = form.querySelectorAll('.static-form-row');
+      for (var r = 0; r < rows.length; r++) rows[r].style.display = 'none';
+      var ta = form.querySelector('textarea');
+      if (ta) ta.style.display = 'none';
+      btn.style.display = 'none';
+      var disc = form.querySelector('.contact-form-disclosure');
+      disc.innerHTML = '<span style="display:inline-flex;align-items:center;gap:6px;"><span style="background:#2e7d32;color:#fff;border-radius:50%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0;">\u2713</span> <strong>Message sent!</strong> We\'ll get back to you soon.</span>';
+      disc.style.fontSize = '14px';
+      disc.style.color = '#2e7d32';
+    }
+
+    function shake(msg){
+      btn.textContent = msg;
+      btn.style.background = '#c62828';
+      btn.style.borderColor = '#c62828';
+      setTimeout(function(){
+        btn.textContent = origBtnText;
+        btn.style.background = '';
+        btn.style.borderColor = '';
+      }, 3000);
+    }
+  });
+})();
+</script>
+
+</body>
 </html>
