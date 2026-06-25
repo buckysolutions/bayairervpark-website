@@ -1,112 +1,103 @@
 /**
  * Contact Form Email Template
- * Clean, simple layout — grey field backgrounds, dark answers.
+ * Clean, responsive layout. Scales at all breakpoints.
  *
- * Data: { firstName, lastName, email, phone, message, siteName?, siteUrl? }
+ * Data: { firstName, lastName, email, phone, message, siteName? }
  */
 
 export function buildContactEmail(data) {
-  const siteName = data.siteName || "Bay Aire RV Park";
   const fullName = `${data.firstName} ${data.lastName}`;
-  const now = new Date().toLocaleString("en-US", {
-    timeZone: "America/New_York",
-    dateStyle: "long",
-    timeStyle: "short"
-  });
+  const siteName = data.siteName || "Bay Aire RV Park";
+  const year = new Date().getFullYear();
 
-  return `<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
+  return `<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<!--[if !mso]><!-->
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<!--<![endif]-->
-<meta name="x-apple-disable-message-reformatting" content="" />
-<meta content="target-densitydpi=device-dpi" name="viewport" />
-<meta content="true" name="HandheldFriendly" />
-<meta content="width=device-width" name="viewport" />
-<meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no" />
-<title>New Inquiry — ${siteName}</title>
-<style type="text/css">
-table { border-collapse: separate; table-layout: fixed; mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
-table td { border-collapse: collapse; }
-.ExternalClass { width: 100%; }
-.ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }
-body, a, li, p, h1, h2, h3 { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
-html { -webkit-text-size-adjust: none !important; }
-body { min-width: 100%; Margin: 0px; padding: 0px; }
-img { Margin: 0; padding: 0; -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
-a { text-decoration: none; }
-a[x-apple-data-detectors] { color: inherit !important; text-decoration: none !important; font-size: inherit !important; font-family: inherit !important; font-weight: inherit !important; line-height: inherit !important; }
-u + #body a { color: inherit; text-decoration: none; font-size: inherit; font-family: inherit; font-weight: inherit; line-height: inherit; }
-a[href^="mailto"], a[href^="tel"], a[href^="sms"] { color: inherit; text-decoration: none; }
-@media (max-width: 480px) { .pad { padding: 20px 16px !important; } }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="x-apple-disable-message-reformatting">
+    <!--[if mso]><noscript><xml><o:OfficeDocumentSettings><o:AllowPNG/><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml></noscript><![endif]-->
+    <title>New Form Response – ${escapeHtml(siteName)}</title>
+    <style>
+        /* ── Responsive media queries ── */
+        @media only screen and (max-width: 480px) {
+            .email-inner   { width: 100% !important; }
+            .email-padding { padding: 30px 20px !important; }
+            .email-logo    { margin-bottom: 28px !important; }
+            .email-btn-td  { padding: 16px 0 !important; }
+        }
+        @media only screen and (max-width: 375px) {
+            .email-padding { padding: 24px 16px !important; }
+            body, p, a, span { font-size: inherit !important; }
+        }
+    </style>
 </head>
-<body style="margin:0;padding:0;min-width:100%;background-color:#E3E3E3;">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" align="center" style="background-color:#E3E3E3;">
-<tr>
-  <td align="center" style="padding:30px 10px;">
+<body style="margin: 0; padding: 0; background-color: #E3E3E3; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased;">
 
-    <!-- container -->
-    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px;width:100%;">
+    <!--[if mso]><table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center"><![endif]-->
 
-      <!-- header -->
-      <tr>
-        <td style="background-color:#2DA4A9;padding:24px 32px;text-align:center;">
-          <p style="margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.5px;">
-            ${siteName}
-          </p>
-        </td>
-      </tr>
+    <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" style="background-color: #E3E3E3; padding: 40px 20px; min-height: 100vh;">
+        <tr>
+            <td align="center" valign="top">
 
-      <!-- body -->
-      <tr>
-        <td style="background-color:#F2F4F7;padding:32px;border-left:1px solid #E0E0E0;border-right:1px solid #E0E0E0;" class="pad">
+                <!-- Main card: fluid width, capped at 600px -->
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" class="email-inner" style="max-width: 600px; background-color: #FEFDFA; border-top: 4px solid #2da4a9; margin: 0 auto; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+                    <tr>
+                        <td class="email-padding" style="padding: 50px 50px 50px 50px;">
 
-          <p style="margin:0 0 6px 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:18px;font-weight:700;line-height:26px;color:#2E2E2E;">
-            New Form Submission
-          </p>
-          <p style="margin:0 0 24px 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:12px;line-height:18px;color:#999999;">
-            ${now} (ET)
-          </p>
+                            <img src="https://assets.buckysolutions.com/bucky%2Blogo.png" alt="bucky" width="110" class="email-logo" style="display: block; max-width: 110px; width: 100%; height: auto; margin-bottom: 40px; border: 0;">
 
-          <!-- fields -->
-          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;">
-            ${row("Name",    fullName)}
-            ${row("Email",   `<a href="mailto:${data.email}" style="color:#2DA4A9;">${data.email}</a>`)}
-            ${data.phone ? row("Phone", `<a href="tel:${data.phone}" style="color:#2E2E2E;text-decoration:none;">${data.phone}</a>`) : ""}
-            ${row("Message", escapeHtml(data.message).replace(/\n/g, '<br />'))}
-          </table>
+                            <p style="color: #888888; font-size: 16px; line-height: 24px; margin: 0 0 30px 0;">
+                                A new form response has been submitted. Review the details below:
+                            </p>
 
-        </td>
-      </tr>
+                            <p style="font-size: 16px; line-height: 24px; margin: 0 0 15px 0;">
+                                <span style="color: #888888;">Name:</span> <span style="color: #000000;">${escapeHtml(fullName)}</span>
+                            </p>
+                            <p style="font-size: 16px; line-height: 24px; margin: 0 0 15px 0;">
+                                <span style="color: #888888;">Email:</span> <span style="color: #000000;">${escapeHtml(data.email)}</span>
+                            </p>
+                            ${data.phone ? `<p style="font-size: 16px; line-height: 24px; margin: 0 0 15px 0;">
+                                <span style="color: #888888;">Phone:</span> <span style="color: #000000;">${escapeHtml(data.phone)}</span>
+                            </p>` : ''}
+                            <p style="font-size: 16px; line-height: 24px; margin: 0 0 40px 0;">
+                                <span style="color: #888888;">Message:</span> <span style="color: #000000;">${escapeHtml(data.message)}</span>
+                            </p>
 
+                            <!-- Button: full-width, bulletproof -->
+                            <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation">
+                                <tr>
+                                    <td align="center" class="email-btn-td" style="background-color: #2da4a9;">
+                                        <!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="mailto:${escapeHtml(data.email)}" style="height:54px;v-text-anchor:middle;width:100%;" fillcolor="#2da4a9"><w:anchorlock/><center><![endif]-->
+                                        <a href="mailto:${escapeHtml(data.email)}" style="display: block; width: 100%; padding: 18px 0; color: #ffffff; text-decoration: none; font-size: 16px; font-weight: bold; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                                            Reply to email
+                                        </a>
+                                        <!--[if mso]></center></v:roundrect><![endif]-->
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Footer -->
+                <table width="100%" cellpadding="0" cellspacing="0" border="0" role="presentation" class="email-inner" style="max-width: 600px; margin: 0 auto;">
+                    <tr>
+                        <td align="center" style="padding: 25px 0; color: #999999; font-size: 12px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+                            &copy; ${year} Bucky Solutions LLC &middot; All Rights Reserved
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
     </table>
 
-  </td>
-</tr>
-</table>
+    <!--[if mso]></td></tr></table><![endif]-->
+
 </body>
 </html>`;
-}
-
-function row(label, value) {
-  return `<tr>
-<td style="padding:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="width:100%;margin-bottom:12px;">
-    <tr>
-      <td style="padding:8px 14px;background-color:#E8EAED;font-size:11px;font-weight:700;color:#777777;text-transform:uppercase;letter-spacing:0.5px;width:1%;white-space:nowrap;vertical-align:top;">
-        ${label}
-      </td>
-      <td style="padding:8px 14px;background-color:#FFFFFF;font-size:14px;line-height:20px;color:#2E2E2E;vertical-align:top;">
-        ${value || "&mdash;"}
-      </td>
-    </tr>
-  </table>
-</td>
-</tr>`;
 }
 
 function escapeHtml(str) {

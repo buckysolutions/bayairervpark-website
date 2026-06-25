@@ -89,7 +89,7 @@ header .uabb-creative-menu .menu.uabb-creative-menu-horizontal > li:last-child {
 }
 
 /* Widen header & banner containers to 1600px */
-header .fl-row-fixed-width { max-width: 1600px !important; }
+header .fl-row-fixed-width, footer .fl-row-fixed-width { max-width: 1600px !important; }
 	/* Off-canvas mobile menu */
 	.uabb-off-canvas-menu .menu { padding: 20px 0; }
 	.uabb-off-canvas-menu .menu li { border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -557,40 +557,72 @@ outline: none;
 		box-sizing: border-box;
 		height: 42px;
 	}
+	.booking-dates-field { position: relative; }
+	.booking-dates-trigger {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: right 12px center;
+		padding-right: 32px;
+		text-align: left;
+		cursor: pointer;
+		background-color: #fff !important;
+		border: 1px solid #ddd !important;
+		border-radius: 0 !important;
+		color: #333 !important;
+		font-size: 15px !important;
+		font-weight: 400 !important;
+		text-shadow: none !important;
+		box-shadow: none !important;
+	}
+	.booking-dates-trigger:hover,
+	.booking-dates-trigger:focus {
+		background-color: #fff !important;
+		border-color: #65cbda !important;
+		color: #333 !important;
+		box-shadow: none !important;
+	}
 	.booking-select {
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23666' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
 		background-repeat: no-repeat;
 		background-position: right 12px center;
 		padding-right: 32px;
 	}
+	.booking-input:hover,
+	.booking-select:hover {
+		border-color: #65cbda;
+	}
 	.booking-input:focus,
 	.booking-select:focus {
 		border-color: #65cbda;
 	}
 	.booking-search-btn {
-		font-family: Lato, sans-serif;
-		font-weight: 700;
-		font-size: 15px;
-		text-transform: uppercase;
-		letter-spacing: 0.5px;
-		background: #65cbda;
-		color: #fff;
-		border: none;
-		border-radius: 0;
-		padding: 12px 28px;
-		cursor: pointer;
-		transition: background .2s ease;
-		white-space: nowrap;
-		height: 42px;
-		box-sizing: border-box;
+		font-family: Lato, sans-serif !important;
+		font-weight: 700 !important;
+		font-size: 15px !important;
+		text-transform: uppercase !important;
+		letter-spacing: 0.5px !important;
+		background: #65cbda !important;
+		color: #fff !important;
+		border: none !important;
+		border-radius: 0 !important;
+		padding: 12px 28px !important;
+		cursor: pointer !important;
+		transition: background .2s ease !important;
+		white-space: nowrap !important;
+		height: 42px !important;
+		box-sizing: border-box !important;
 		flex-shrink: 0;
 		margin-left: 16px;
 		align-self: flex-end;
 	}
 	.booking-search-btn:hover,
 	.booking-search-btn:focus {
-		background: #15b2d1;
-		outline: none;
+		background: #15b2d1 !important;
+		color: #fff !important;
+		border: none !important;
+		border-radius: 0 !important;
+		outline: none !important;
+		box-shadow: none !important;
 	}
 
 	/* Mobile booking bar */
@@ -782,6 +814,55 @@ outline: none;
 	.footer-bucky-badge a { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: inherit; font-family: 'Host Grotesk', 'Inter', system-ui, sans-serif; font-size: 13px; transition: color .2s, opacity .2s; }
 	.footer-bucky-badge a:hover { color: inherit; opacity: 0.8; }
 	.footer-bucky-badge a img { display: block; height: 18px; width: auto; }
+
+	/* ── Date range calendar dropdown ── */
+	.date-range-cal { display: none; position: absolute; top: 100%; left: 0; margin-top: 4px; z-index: 99999; background: #fff; border: 1px solid #ddd; border-radius: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.12); padding: 16px 16px 10px; font-family: Lato, sans-serif; min-width: 280px; max-width: 320px; }
+	.date-range-cal.is-open { display: block; }
+	.date-range-cal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+	.date-range-cal-nav { background: none !important; border: 1px solid #ddd !important; border-radius: 3px; width: 32px; height: 32px; font-size: 18px; line-height: 1; color: #333 !important; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0 !important; }
+	.date-range-cal-nav:hover { background: #f5f5f5 !important; border-color: #bbb !important; }
+	.date-range-cal-month-label { font-weight: 700; font-size: 15px; color: #1d5171; text-align: center; }
+	.date-range-cal-grid { width: 100%; }
+	.date-range-cal-dow { display: grid; grid-template-columns: repeat(7, 1fr); text-align: center; font-size: 11px; font-weight: 700; color: #999; text-transform: uppercase; margin-bottom: 4px; }
+	.date-range-cal-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+	.date-range-cal .date-range-cal-day { aspect-ratio: 1 / 1; border: none !important; background: none !important; outline: none !important; box-shadow: none !important; border-radius: 3px; font-family: Lato, sans-serif; font-size: 13px; color: #333; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0; text-decoration: none !important; position: static !important; }
+	.date-range-cal .date-range-cal-day:focus, .date-range-cal .date-range-cal-day:focus-visible { outline: none !important; box-shadow: none !important; }
+	.date-range-cal .date-range-cal-day:disabled { color: #ccc; cursor: default; }
+	.date-range-cal .date-range-cal-day.is-other-month { color: #bbb; }
+	.date-range-cal .date-range-cal-day.is-other-month:disabled { color: #e0e0e0; }
+	.date-range-cal .date-range-cal-day.is-today:not(.is-selected) { font-weight: 700; color: #1d5171; }
+	.date-range-cal .date-range-cal-day.is-selected { background: #65cbda !important; color: #fff !important; font-weight: 700; border: none !important; border-radius: 0; }
+	.date-range-cal .date-range-cal-day.is-range-start { border-radius: 3px 0 0 3px; }
+	.date-range-cal .date-range-cal-day.is-range-end { border-radius: 0 3px 3px 0; }
+	.date-range-cal .date-range-cal-day.is-range-start.is-range-end { border-radius: 3px; }
+	.date-range-cal .date-range-cal-day.is-in-range { background: #d9f2f6 !important; color: #1d5171 !important; border: none !important; border-radius: 0; }
+	.date-range-cal-footer { display: flex; justify-content: flex-end; gap: 8px; margin-top: 12px; padding-top: 10px; border-top: 1px solid #eee; }
+	.date-range-cal-clear { background: none !important; border: 1px solid #ddd !important; border-radius: 0 !important; padding: 6px 16px !important; font-family: Lato, sans-serif !important; font-size: 13px !important; font-weight: 400 !important; color: #666 !important; cursor: pointer; text-shadow: none !important; box-shadow: none !important; }
+	.date-range-cal-clear:hover { background: #f5f5f5 !important; border-color: #bbb !important; color: #666 !important; }
+	.date-range-cal-apply { background: #65cbda !important; border: none !important; border-radius: 0 !important; padding: 6px 16px !important; font-family: Lato, sans-serif !important; font-size: 13px !important; font-weight: 700 !important; color: #ffffff !important; cursor: pointer; text-shadow: none !important; box-shadow: none !important; }
+	.date-range-cal-apply:hover:not(:disabled) { background: #15b2d1 !important; color: #ffffff !important; }
+	.date-range-cal-apply:disabled { background: #ccc !important; color: #ffffff !important; cursor: default; }
+	.dates-label.is-placeholder { color: #999; }
+	@media screen and (max-width: 768px) { .date-range-cal { min-width: 0; width: 100%; } .date-range-cal .date-range-cal-day { font-size: 14px; } }
+
+	/* ── Footer copyright bar ── */
+	.footer-copyright .fl-row-content-wrap { padding: 16px 0 !important; }
+	.footer-copyright .fl-row-content { max-width: 1600px !important; }
+	.footer-copyright .fl-col-group,
+	.fl-node-61b1880f328b3 { display: flex !important; align-items: center !important; justify-content: space-between !important; width: 100% !important; flex-wrap: wrap !important; gap: 8px 24px !important; }
+	.footer-copyright .fl-col-small,
+	.fl-node-61b1880f328b4,
+	.fl-node-61b1880f328b5 { width: auto !important; max-width: none !important; flex: 0 0 auto !important; float: none !important; clear: none !important; }
+	.footer-copyright .fl-col-content { margin: 0 !important; padding: 0 !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+	.footer-copyright .fl-module-content { margin: 0 !important; padding: 0 !important; }
+	.footer-copyright p { margin: 0 !important; }
+	@media screen and (max-width: 768px) {
+		.footer-copyright .fl-col-group,
+		.fl-node-61b1880f328b3 { flex-direction: column !important; gap: 8px !important; }
+		.footer-copyright .fl-col-small,
+		.fl-node-61b1880f328b4,
+		.fl-node-61b1880f328b5 { width: auto !important; max-width: none !important; }
+	}
 	</style>
 		</head>
 <body class="home page-template-default page page-id-12 fl-builder fl-builder-2-9-3 fl-themer-1-5-1-1 fl-theme-1-7-18-1 fl-no-js fl-theme-builder-header fl-theme-builder-header-header-menu fl-theme-builder-footer fl-theme-builder-footer-footer-menu fl-framework-base-4 fl-preset-default fl-full-width fl-scroll-to-top fl-search-active" itemscope="itemscope" itemtype="https://schema.org/WebPage">
@@ -1111,27 +1192,27 @@ outline: none;
 	</div><div class="fl-module fl-module-html fl-node-booking-bar-desktop" data-node="booking-bar-desktop">
 		<div class="fl-module-content fl-node-content">
 			<div class="hero-booking-bar" id="hero-booking-bar-desktop">
-				<div class="booking-field">
-					<label for="booking-checkin-d">Check-in</label>
-					<input type="date" id="booking-checkin-d" class="booking-input" required>
-				</div>
-				<div class="booking-field">
-					<label for="booking-checkout-d">Check-out</label>
-					<input type="date" id="booking-checkout-d" class="booking-input" required>
-				</div>
-				<div class="booking-field">
-					<label for="booking-adults-d">Adults</label>
-					<select id="booking-adults-d" class="booking-select">
-						<option value="1">1</option>
-						<option value="2" selected>2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-					</select>
-				</div>
-				<div class="booking-field">
-					<label for="booking-children-d">Children</label>
+					<div class="booking-field booking-dates-field">
+						<label>Check-in – Check-out</label>
+						<button type="button" class="booking-input booking-dates-trigger" id="booking-dates-d" aria-label="Select check-in and check-out dates">
+							<span class="dates-label">Select dates</span>
+						</button>
+						<input type="hidden" id="booking-checkin-d" required>
+						<input type="hidden" id="booking-checkout-d" required>
+					</div>
+					<div class="booking-field">
+						<label for="booking-adults-d">Adults</label>
+						<select id="booking-adults-d" class="booking-select">
+							<option value="1">1</option>
+							<option value="2" selected>2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+						</select>
+					</div>
+					<div class="booking-field">
+						<label for="booking-children-d">Children</label>
 					<select id="booking-children-d" class="booking-select">
 						<option value="0" selected>0</option>
 						<option value="1">1</option>
@@ -1254,30 +1335,30 @@ outline: none;
 
 		</div>
 		</div>
-	</div>booking-bar-mobile" data-node="booking-bar-mobile">
+	<div class="fl-module fl-module-html fl-node-booking-bar-mobile" data-node="booking-bar-mobile">
 		<div class="fl-module-content fl-node-content">
 			<div class="hero-booking-bar" id="hero-booking-bar-mobile">
-				<div class="booking-field">
-					<label for="booking-checkin-m">Check-in</label>
-					<input type="date" id="booking-checkin-m" class="booking-input" required>
-				</div>
-				<div class="booking-field">
-					<label for="booking-checkout-m">Check-out</label>
-					<input type="date" id="booking-checkout-m" class="booking-input" required>
-				</div>
-				<div class="booking-field">
-					<label for="booking-adults-m">Adults</label>
-					<select id="booking-adults-m" class="booking-select">
-						<option value="1">1</option>
-						<option value="2" selected>2</option>
-						<option value="3">3</option>
-						<option value="4">4</option>
-						<option value="5">5</option>
-						<option value="6">6</option>
-					</select>
-				</div>
-				<div class="booking-field">
-					<label for="booking-children-m">Children</label>
+					<div class="booking-field booking-dates-field">
+						<label>Check-in – Check-out</label>
+						<button type="button" class="booking-input booking-dates-trigger" id="booking-dates-m" aria-label="Select check-in and check-out dates">
+							<span class="dates-label">Select dates</span>
+						</button>
+						<input type="hidden" id="booking-checkin-m" required>
+						<input type="hidden" id="booking-checkout-m" required>
+					</div>
+					<div class="booking-field">
+						<label for="booking-adults-m">Adults</label>
+						<select id="booking-adults-m" class="booking-select">
+							<option value="1">1</option>
+							<option value="2" selected>2</option>
+							<option value="3">3</option>
+							<option value="4">4</option>
+							<option value="5">5</option>
+							<option value="6">6</option>
+						</select>
+					</div>
+					<div class="booking-field">
+						<label for="booking-children-m">Children</label>
 					<select id="booking-children-m" class="booking-select">
 						<option value="0" selected>0</option>
 						<option value="1">1</option>
@@ -1513,7 +1594,7 @@ outline: none;
 	<div class="fl-module-content fl-node-content">
 		<div class="fl-photo fl-photo-align-center" itemscope itemtype="https://schema.org/ImageObject">
 	<div class="fl-photo-content fl-photo-img-jpg">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.8839031387206!2d-82.77383252393346!3d28.089083975965885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2f2dc36677c39%3A0xc6f0a685759a0e13!2sBay%20Aire%20RV%20Park!5e0!3m2!1sen!2sus!4v1782400673911!5m2!1sen!2sus" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Bay Aire RV Park Location"></iframe>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3519.8839031387206!2d-82.77383252393346!3d28.089083975965885!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2f2dc36677c39%3A0xc6f0a685759a0e13!2sBay%20Aire%20RV%20Park!5e0!3m2!1sen!2sus!4v1782400673911!5m2!1sen!2sus" width="100%" height="100%" style="border:0; aspect-ratio:1; object-fit:cover;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="Bay Aire RV Park Location"></iframe>
 					</div>
 	</div>
 	</div>
@@ -1824,7 +1905,7 @@ outline: none;
 	<div class="fl-col-content fl-node-content"><div class="fl-module fl-module-rich-text fl-node-61b1880f328a1" data-node="61b1880f328a1">
 	<div class="fl-module-content fl-node-content">
 		<div class="fl-rich-text">
-	<p>Copyright &copy; 2026, Bay Aire RV Park. All Rights Reserved.</p>
+	<p>Copyright © 2026, Bay Aire RV Park. All Rights Reserved.</p>
 </div>
 	</div>
 </div>
@@ -1869,68 +1950,161 @@ var themeopts = {"medium_breakpoint":"1200","mobile_breakpoint":"768","lightbox"
 
 		
 	<script>
-	// Link check-in/check-out date pickers for both desktop (d) and mobile (m)
+	// ── Date Range Picker ──
+(function(){
+	var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+	var state = { start: null, end: null, cursor: null, activePrefix: null };
+	var calEl = null;
+	var _skipClose = false;
+
+	function fmt(d) { return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); }
+	function sameDay(a,b) { return a.getFullYear()===b.getFullYear() && a.getMonth()===b.getMonth() && a.getDate()===b.getDate(); }
+	function daysInMonth(y,m) { return new Date(y,m+1,0).getDate(); }
+	function today() { var d=new Date(); return new Date(d.getFullYear(),d.getMonth(),d.getDate()); }
+
+	function buildCal(){
+		if (calEl) return;
+		calEl = document.createElement('div');
+		calEl.className = 'date-range-cal';
+		calEl.innerHTML = '<div class="date-range-cal-inner"><div class="date-range-cal-header"><button class="date-range-cal-nav" data-dir="-1" aria-label="Previous month">&lsaquo;</button><span class="date-range-cal-month-label"></span><button class="date-range-cal-nav" data-dir="1" aria-label="Next month">&rsaquo;</button></div><div class="date-range-cal-grid"><div class="date-range-cal-dow"><span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span></div><div class="date-range-cal-days"></div></div><div class="date-range-cal-footer"><button class="date-range-cal-clear">Clear</button><button class="date-range-cal-apply" disabled>Apply</button></div></div>';
+		document.body.appendChild(calEl);
+
+		calEl.querySelector('.date-range-cal-clear').addEventListener('click', function(){ state.start=null; state.end=null; render(); updateTrigger(); close(); });
+		calEl.querySelector('.date-range-cal-apply').addEventListener('click', function(){ close(); });
+		calEl.querySelectorAll('.date-range-cal-nav').forEach(function(b){ b.addEventListener('click', function(){ state.cursor.setMonth(state.cursor.getMonth() + (this.dataset.dir==='1'?1:-1)); render(); }); });
+
+		document.addEventListener('click', function(e){
+			if (!calEl.classList.contains('is-open')) return;
+			if (_skipClose) { _skipClose = false; return; }
+			if (calEl.contains(e.target)) return;
+			if (e.target.closest('.booking-dates-trigger')) return;
+			close();
+		});
+	}
+
+	function render(){
+		var base = new Date(state.cursor.getFullYear(), state.cursor.getMonth(), 1);
+		calEl.querySelector('.date-range-cal-month-label').textContent = MONTHS[base.getMonth()] + ' ' + base.getFullYear();
+
+		var container = calEl.querySelector('.date-range-cal-days');
+		container.innerHTML = '';
+		var firstDow = new Date(base.getFullYear(), base.getMonth(), 1).getDay();
+		var total = daysInMonth(base.getFullYear(), base.getMonth());
+		var prevTotal = daysInMonth(base.getFullYear(), base.getMonth()-1);
+
+		for (var i = firstDow-1; i >= 0; i--){
+			var d = prevTotal - i;
+			container.appendChild(dayBtn(new Date(base.getFullYear(), base.getMonth()-1, d), true));
+		}
+		for (var i = 1; i <= total; i++){
+			container.appendChild(dayBtn(new Date(base.getFullYear(), base.getMonth(), i), false));
+		}
+		var remaining = 42 - (firstDow + total);
+		for (var i = 1; i <= remaining; i++){
+			container.appendChild(dayBtn(new Date(base.getFullYear(), base.getMonth()+1, i), true));
+		}
+
+		calEl.querySelector('.date-range-cal-apply').disabled = !state.start || !state.end;
+	}
+
+	function dayBtn(d, otherMonth){
+		var btn = document.createElement('button');
+		btn.className = 'date-range-cal-day';
+		btn.textContent = d.getDate();
+		btn.type = 'button';
+		if (otherMonth) btn.classList.add('is-other-month');
+		if (sameDay(d, today())) btn.classList.add('is-today');
+		if (d < today()) btn.disabled = true;
+
+		if (state.start && sameDay(d, state.start)) btn.classList.add('is-selected','is-range-start');
+		if (state.end && sameDay(d, state.end)) btn.classList.add('is-selected','is-range-end');
+		if (state.start && state.end && d > state.start && d < state.end) btn.classList.add('is-in-range');
+
+		if (!btn.disabled){
+			btn.addEventListener('click', function(){
+				if (!state.start || (state.start && state.end)){
+					state.start = new Date(d); state.end = null;
+				} else {
+					if (d < state.start){ state.end = new Date(state.start); state.start = new Date(d); }
+					else { state.end = new Date(d); }
+				}
+				_skipClose = true;
+				render();
+				updateTrigger();
+				if (state.start && state.end) calEl.querySelector('.date-range-cal-apply').focus();
+			});
+		}
+		return btn;
+	}
+
+	function updateTrigger(){
+		var p = state.activePrefix;
+		if (!p) return;
+		var checkin = document.getElementById('booking-checkin-'+p);
+		var checkout = document.getElementById('booking-checkout-'+p);
+		var label = document.querySelector('#booking-dates-'+p+' .dates-label');
+		if (state.start){ checkin.value = fmt(state.start); } else { checkin.value = ''; }
+		if (state.end){ checkout.value = fmt(state.end); } else { checkout.value = ''; }
+		if (state.start && state.end){
+			var opts = { month:'short', day:'numeric' };
+			label.textContent = state.start.toLocaleDateString('en-US',opts) + ' \u2013 ' + state.end.toLocaleDateString('en-US',opts);
+			label.classList.remove('is-placeholder');
+		} else {
+			label.textContent = 'Select dates';
+			label.classList.add('is-placeholder');
+		}
+	}
+
+	function open(prefix){
+		buildCal();
+		state.activePrefix = prefix;
+		var checkin = document.getElementById('booking-checkin-'+prefix);
+		if (checkin.value) state.start = new Date(checkin.value+'T12:00');
+		var checkout = document.getElementById('booking-checkout-'+prefix);
+		if (checkout.value) state.end = new Date(checkout.value+'T12:00');
+		state.cursor = state.start ? new Date(state.start) : today();
+		render();
+		updateTrigger();
+		var field = document.getElementById('booking-dates-'+prefix).closest('.booking-dates-field');
+		if (field && calEl.parentNode !== field) field.appendChild(calEl);
+		calEl.classList.add('is-open');
+	}
+
+	function close(){
+		if (!calEl) return;
+		calEl.classList.remove('is-open');
+	}
+
 	['d','m'].forEach(function(px){
-	  var ci = document.getElementById('booking-checkin-' + px);
-	  var co = document.getElementById('booking-checkout-' + px);
-	  if (!ci || !co) return;
-
-	  // Set minimums to today
-	  var today = new Date().toISOString().split('T')[0];
-	  ci.min = today;
-	  co.min = today;
-
-	  // When check-in changes, auto-bump checkout and set min
-	  ci.addEventListener('change', function(){
-	    if (!ci.value) return;
-	    var nextDay = new Date(ci.value + 'T12:00');
-	    nextDay.setDate(nextDay.getDate() + 1);
-	    var nextStr = nextDay.toISOString().split('T')[0];
-	    co.min = nextStr;
-	    if (!co.value || co.value <= ci.value) {
-	      co.value = nextStr;
-	    }
-	    co.focus();
-	  });
-
-	  // When checkout opens, ensure min is set
-	  co.addEventListener('focus', function(){
-	    if (ci.value) {
-	      var nextDay = new Date(ci.value + 'T12:00');
-	      nextDay.setDate(nextDay.getDate() + 1);
-	      co.min = nextDay.toISOString().split('T')[0];
-	    }
-	  });
+		var trigger = document.getElementById('booking-dates-'+px);
+		if (trigger) trigger.addEventListener('click', function(){ open(px); });
 	});
 
-	function submitBooking(prefix) {
-		var checkin = document.getElementById('booking-checkin-' + prefix).value;
-		var checkout = document.getElementById('booking-checkout-' + prefix).value;
-		var adults = document.getElementById('booking-adults-' + prefix).value;
-		var children = document.getElementById('booking-children-' + prefix).value;
-		var pets = document.getElementById('booking-pets-' + prefix).value;
+	window.submitBooking = function(prefix){
+		var checkin = document.getElementById('booking-checkin-' + prefix);
+		var checkout = document.getElementById('booking-checkout-' + prefix);
+		var adults = document.getElementById('booking-adults-' + prefix);
+		var children = document.getElementById('booking-children-' + prefix);
+		var pets = document.getElementById('booking-pets-' + prefix);
 
-		if (!checkin || !checkout) {
-			alert('Please select both Check-in and Check-out dates.');
+		if (!checkin.value || !checkout.value) {
+			open(prefix);
 			return;
 		}
-
-		if (checkout <= checkin) {
-			alert('Check-out date must be after Check-in date.');
+		if (checkout.value <= checkin.value) {
+			open(prefix);
 			return;
 		}
-
 		var baseUrl = 'https://app.fireflyreservations.com/reserve/property/BayAireRVPark';
 		var params = [];
-		params.push('ArrivalDate=' + encodeURIComponent(checkin));
-		params.push('DepartureDate=' + encodeURIComponent(checkout));
-		params.push('Adults=' + encodeURIComponent(adults));
-		params.push('Children=' + encodeURIComponent(children));
-		params.push('Pets=' + encodeURIComponent(pets));
-
-		var url = baseUrl + '?' + params.join('&');
-		window.open(url, '_blank', 'noopener');
-	}
+		params.push('ArrivalDate=' + encodeURIComponent(checkin.value));
+		params.push('DepartureDate=' + encodeURIComponent(checkout.value));
+		params.push('Adults=' + encodeURIComponent(adults.value));
+		params.push('Children=' + encodeURIComponent(children.value));
+		params.push('Pets=' + encodeURIComponent(pets.value));
+		window.open(baseUrl + '?' + params.join('&'), '_blank', 'noopener');
+	};
+})();
 	</script>
 		</body>
 </html>
