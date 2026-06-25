@@ -16,7 +16,8 @@ export async function onRequest(context) {
   }
 
   if (context.request.method !== "POST") {
-    return json({ ok: false, error: "Method not allowed" }, 405);
+    // Redirect browser visits to the contact page
+    return Response.redirect("/contact/", 302);
   }
 
   try {
