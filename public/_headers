@@ -48,4 +48,4 @@ https://bayairervpark-static-astro.pages.dev/*
   Cache-Control: public, max-age=3600
 
 /*.html
-  Cache-Control: public, max-age=600
+  Cache-Control: public, max-age=86400
